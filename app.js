@@ -8,8 +8,8 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const { v4:uuidv4 } = require('uuid')
-const {sessionSecret} = require("./config");
+const { v4: uuidv4 } = require('uuid')
+const { sessionSecret } = require("./config");
 
 const app = express();
 
@@ -19,7 +19,8 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser( { sessionSecret }));
+// removed curly braces
+app.use(cookieParser(sessionSecret));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set up session middleware
@@ -27,7 +28,7 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
-    secret:  sessionSecret,
+    secret: sessionSecret,
     store,
     saveUninitialized: false,
     resave: false,
