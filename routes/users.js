@@ -22,7 +22,7 @@ const userValidators = [
   check('password')
     .exists( {checkFalsey: true})
     .withMessage('Please provide a password'), //Require certain characters
-  check('confirmPassword')
+  check('confirmedPassword')
     .exists({ checkFalsey:true })
     .withMessage('Please confirm password')
     .custom((value, { req }) => {
@@ -62,7 +62,7 @@ router.post('/sign-up',
       res.redirect('/');
     } else {
       let errors = validationErrors.array().map((e) => e.msg);
-
+      console.log(errors);
       res.render('sign-up', {
         user,
         errors,
