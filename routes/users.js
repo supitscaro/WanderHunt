@@ -104,6 +104,7 @@ router.post('/log-in', csrfProtection, loginValidators,
 
         if (passwordMatch) {
           loginUser(req, res, user);
+          console.log(req.session.auth)
           return res.redirect('/');
         }
       }
