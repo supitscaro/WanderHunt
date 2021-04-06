@@ -64,7 +64,6 @@ router.post('/sign-up',
       res.redirect('/');
     } else {
       validationErrors.array().map((e) => errors.push(e.msg));
-      console.log(errors);
       res.render('sign-up', {
         user,
         errors,

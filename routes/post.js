@@ -22,34 +22,55 @@ router.get('/create', csrfProtection, requireAuth, asyncHandler(async (req, res)
 }));
 
 let postValidators = [
-    check('username')
+    check('title')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a username')
-        .isLength({ max: 50 })
-        .withMessage('Must not be longer then 50 characters'),
-    check('email')
+        .withMessage('Please provide a title'),
+    check('description')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide an email')
-        .isLength({ max: 255 })
-        .withMessage('Must not be longer then 255 characters')
-        .isEmail()
-        .withMessage('Must be a valid email'), //Check for unique email
-    check('password')
+        .withMessage('Please provide an description'),
+    check('gallery')
         .exists({ checkFalsy: true })
-        .withMessage('Please provide a password'), //Require certain characters
-    check('confirmedPassword')
+        .withMessage('Please provide at least one photo url'), //Require certain characters
+    check('state')
         .exists({ checkFalsy: true })
-        .withMessage('Please confirm password')
-        .custom((value, { req }) => {
-            if (value !== req.body.password) {
-                throw new Error('Passwords must match')
-            }
-            return true
-        }),
+        .withMessage('Please provide a location'),
+    check('activity')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide an activity type'),
 ]
 
-router.post('/create', csrfProtection, requireAuth, asyncHandler(async (req, res, next) => {
+router.post('/create', 
+    csrfProtection, 
+    requireAuth,
+    postValidators, 
+    asyncHandler(async (req, res, next) => {
+        const { title, description, gallery, state, activity } = req.body;
 
+        let galleryArray = gallery.split(', ');
+        let user_id = res.locals.user.id;
+        console.log(state);
+        const post = Post.build({title, description, gallery: galleryArray, user_id, state_id: state, activity_id: activity});
+        const validationErrors = validationResult(req);
+        let errors = [];
+        
+        if (validationErrors.isEmpty()){
+            console.log('hello')
+            await post.save();
+            let newPost = await Post.findOne({where : {title: title, description: description}});
+            res.redirect(`/post/${newPost.id}`);
+        } else {
+            console.log('bad')
+            validationErrors.array().map((e) => errors.push(e.msg));
+            let activities = await Activity.findAll();
+            let states = await State.findAll();
+            res.render('create-post', {
+                post,
+                errors,
+                activities,
+                states,
+                csrfToken: req.csrfToken(),
+            })
+        }
 }))
 
 module.exports = router;
