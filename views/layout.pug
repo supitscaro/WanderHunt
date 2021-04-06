@@ -5,4 +5,15 @@ html
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
+    div.navbar
+        img.navbar_logo(src="", alt="")
+        input.navbar_search(type="search")
+        div.navbar_postButton
+          button Post
+        div.navbar_profileImage
+          img.pfp(src="", alt="")
+        div.navbar_logInButton
+          button Log In
+        div.navbar_signUpButton
+          button Sign Up
     block content
