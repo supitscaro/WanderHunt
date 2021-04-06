@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   Activity.associate = function(models) {
-    Activity.hasMany(models.Post, {foreignKey: 'postId'})
+    Activity.hasMany(models.Post, {foreignKey: 'activityId'})
 
     // associations can be defined here
   };
