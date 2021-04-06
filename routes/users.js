@@ -52,7 +52,7 @@ router.post('/sign-up',
     const user = User.build({username, email});
 
     const validationErrors = validationResult(req);
-
+    let errors = [];
     if (validationErrors.isEmpty()){
       const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -63,7 +63,7 @@ router.post('/sign-up',
 
       res.redirect('/');
     } else {
-      let errors = validationErrors.array().map((e) => e.msg);
+      validationErrors.array().map((e) => errors.push(e.msg));
       console.log(errors);
       res.render('sign-up', {
         user,
