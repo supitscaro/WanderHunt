@@ -7,7 +7,7 @@ html
   body
     div.navbar
         div.navbar_left
-          img.navbar_logo(src="/images/dummylogo.png", alt="")
+          img.navbar_logo(src="/images/dummylogo.png", alt="" onclick="location.href= '/'")
           input.navbar_search(type="search" placeholder="Discover your next favorite thing...")
         div.navbar_right
           if locals.authenticated
@@ -17,7 +17,7 @@ html
               img.navbar_profileImage_pfp(src="/images/dummylogo.png", alt="")
           else
             div.navbar_btn
-              button.navbar_btn_login(href="/users/log-in") Log In
+              button.navbar_btn_login(onclick="location.href= '/users/log-in'") Log In
             div.navbar_btn
-              button.navbar_btn_signup Sign Up
+              button.navbar_btn_signup(onclick="location.href= '/users/sign-up'") Sign Up
     block content
