@@ -1,0 +1,27 @@
+extends layout.pug
+
+block content
+  if errors
+    div
+      p The following error(s) occurred:
+      ul
+        each error in errors
+          li= error
+
+  form(method="post" action="/post/create")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        label(for="title") Title
+        input(type="text" name="title" id="title" value=post.title)
+        label(for="description") Description
+        textarea(name="description" id="description" value=post.description)
+        label(for="gallery") Gallery
+        input(type="text" name="gallery" id="gallery")
+        label(for="location") Location
+        select(name="state" id="state")
+            each state in states
+                option(value=state.id)= state.name
+        label(for="activity") Activity
+        select(name="activity" id="activity")
+            each activity in activities
+                option(value=activity.id)= activity.name
+        input(type="submit" value="Create Post")
