@@ -5,4 +5,11 @@ html
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
+    div(class="nav-bar" name="nav-bar")
+      .nav-bar_logo(name="home") Logo
+      .nav-bar_user(name="user-links")
+      div(class="nav-bar_user-link")
+        a(name="sign-up" href="/users/sign-up" method="get") Sign-up
+      div(class="nav-bar_user-link")
+        a(name="log-in" href="/users/log-in" method="get") Log-in
     block content
