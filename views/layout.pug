@@ -12,7 +12,7 @@ html
         div.navbar_right
           if locals.authenticated
             div.navbar_postBtn
-              button.navbar_postBtn_post(href="") Post
+              button.navbar_postBtn_post(onClick="location.href= '/post/create'") Post
             div.navbar_profileImage
               img.navbar_profileImage_pfp(src="/images/dummylogo.png", alt="")
           else
