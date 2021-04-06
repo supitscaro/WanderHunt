@@ -1,0 +1,70 @@
+ body {
+   background-color:  #F0EFEB;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.navbar {
+  background-color: white;
+  min-height: 67px;
+  max-height: 67px;
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* justify-content: space-around; */
+  grid-template-areas: 'left right';
+}
+
+.navbar_left {
+  grid-area: left;
+}
+
+.navbar_right {
+  grid-area: right;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar_logo {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+.navbar_profileImage_pfp {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+.navbar_search {
+
+}
+
+.navbar_postButton {
+
+}
+
+
+/*
+a {
+  color: #00B7FF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
+body, header, nav {
+  font-size: 1rem;
+  color: inherit;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2rem;
+} */
