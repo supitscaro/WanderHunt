@@ -52,3 +52,5 @@ module.exports = {
     return queryInterface.dropTable('Posts');
   }
 };
+
+// 20210406154814-create-comment   20210406154753-create-post
