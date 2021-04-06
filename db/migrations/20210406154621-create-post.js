@@ -1,4 +1,7 @@
 'use strict';
+
+const { sequelize } = require("../models");
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Posts', {
@@ -13,11 +16,12 @@ module.exports = {
         allowNull: false
       },
       description: {
-        type: Sequelize.TEXT(500),
+        type: Sequelize.TEXT,
         allowNull: false
       },
       gallery: {
-        type: Sequelize.ARRAY,
+        type: Sequelize.ARRAY(Sequelize.TEXT),
+        allowNull: false
       },
       user_id: {
         type: Sequelize.INTEGER,
