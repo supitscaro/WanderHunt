@@ -3,13 +3,19 @@ html
   head
       block head
         title="Express Starter App"
-        link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel='stylesheet' href='/stylesheets/layout.css')
   body
-    div(class="nav-bar" name="nav-bar")
-      .nav-bar_logo(name="home") Logo
-      .nav-bar_user(name="user-links")
-      div(class="nav-bar_user-link")
-        a(name="sign-up" href="/users/sign-up" method="get") Sign-up
-      div(class="nav-bar_user-link")
-        a(name="log-in" href="/users/log-in" method="get") Log-in
+    div.navbar
+        div.navbar_left
+          img.navbar_logo(src="/images/dummylogo.png", alt="")
+          input.navbar_search(type="search")
+        div.navbar_right
+          div.navbar_postButton
+            button Post
+          div.navbar_profileImage
+            img.navbar_profileImage_pfp(src="/images/dummylogo.png", alt="")
+          div.navbar_logInButton
+            button Log In
+          div.navbar_signUpButton
+            button Sign Up
     block content
