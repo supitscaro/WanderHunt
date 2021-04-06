@@ -8,14 +8,16 @@ html
     div.navbar
         div.navbar_left
           img.navbar_logo(src="/images/dummylogo.png", alt="")
-          input.navbar_search(type="search")
+          input.navbar_search(type="search" placeholder="Discover your next favorite thing...")
         div.navbar_right
-          div.navbar_postButton
-            button Post
-          div.navbar_profileImage
-            img.navbar_profileImage_pfp(src="/images/dummylogo.png", alt="")
-          div.navbar_logInButton
-            button Log In
-          div.navbar_signUpButton
-            button Sign Up
+          if locals.authenticated
+            div.navbar_postBtn
+              button.navbar_postBtn_post(href="") Post
+            div.navbar_profileImage
+              img.navbar_profileImage_pfp(src="/images/dummylogo.png", alt="")
+          else
+            div.navbar_btn
+              button.navbar_btn_login(href="/users/log-in") Log In
+            div.navbar_btn
+              button.navbar_btn_signup Sign Up
     block content

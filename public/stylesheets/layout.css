@@ -1,5 +1,6 @@
  body {
-   background-color:  #F0EFEB;
+  padding-top: 75px;
+  background-color:  #F5F5F5;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -7,44 +8,102 @@
   background-color: white;
   min-height: 67px;
   max-height: 67px;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   display: grid;
   grid-template-columns: 2fr 1fr;
-  /* justify-content: space-around; */
   grid-template-areas: 'left right';
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
 }
 
 .navbar_left {
   grid-area: left;
+  display: flex;
+  justify-content:flex-start;
+  padding-left: 20px;
 }
 
 .navbar_right {
   grid-area: right;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+  padding-right: 20px;
 }
 
 .navbar_logo {
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
+  /* padding-right: 20px; */
+  margin-right: 20px;
+  align-self: center;
 }
 
 .navbar_profileImage_pfp {
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
 }
 
 .navbar_search {
-
+  padding-right: 20px;
+  align-self: center;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  height: 35px;
+  width: 50%;
+  background-image: url('../images/search3.png');
+  background-position: 10px 6px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  background-size: 20px 20px;
 }
 
-.navbar_postButton {
+.navbar_postBtn {
+  align-self: center;
+  margin-right: 40px;
+}
 
+.navbar_postBtn_post{
+  border: none;
+  background-color: inherit;
+  text-decoration: none;
+  font-size: 17px;
+  cursor: pointer;
+  color: #7E7E7E;
+}
+
+.navbar_btn {
+  align-self: center;
+  margin-right: 40px;
 }
 
 
+.navbar_btn_login {
+  background-color: inherit;
+  /* border-color: rgba(0, 0, 0, 0.2); */
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 30px;
+  width: 70px;
+  border-radius: 3px;
+  margin-right: -38px;
+}
+
+.navbar_btn_signup {
+  background-color: #D33F49;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 30px;
+  width: 70px;
+  border-radius: 3px;
+}
+
+.navbar_profileImage {
+  align-self: center;
+}
 /*
 a {
   color: #00B7FF;
