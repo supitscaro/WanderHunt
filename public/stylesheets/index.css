@@ -8,7 +8,7 @@ h1 {
 }
 
 .body-container {
-    background-color: #F0EFEB;
+    background-color: #F5F5F5;
 }
     /* float: left;
     display: grid;
@@ -47,7 +47,7 @@ h1 {
 footer{
     padding: 20px;
     text-align: center;
-    background: #F0EFEB;
+    background: rgba(203, 144, 77,.5);
     margin-top: 20px;
 }
 
