@@ -1,21 +1,33 @@
-extends layout.pug
+
+
 
 block content
-  if errors 
-    div   
-      p The following error(s) occurred: 
-      ul 
-        each error in errors 
-          li= error 
-  form(method="post" action="/users/sign-up")
+  link(rel='stylesheet' href='/stylesheets/signup-login.css')
+  if errors
+    div
+      p The following error(s) occurred:
+      ul
+        each error in errors
+          li= error
+  div.container
+    h1 Sign Up
+    p Please fill in this form to create an account
+    div
+      form(method="post" action="/users/sign-up")
         input(type="hidden" name="_csrf" value=csrfToken)
-        label(for="username") Username
-        input(type="text" name="username" value=user.username)
-        label(for="email") Email
-        input(type="email" name="email" value=user.email)
-        label(for="password") Password
-        input(type="password" name="password")
-        label(for="confirmedPassword") Confirmed Password
-        input(type="password" name="confirmedPassword")
-        input(type="submit" value="Create User")
-
+        div
+          label(for="username") Username
+        input(type="text" placeholder="Enter Username" name="username" value=user.username)
+        div
+          label(for="email") Email
+        input(type="email" placeholder="Enter email" name="email" value=user.email)
+        div
+          label(for="password") Password
+        input(type="password" placeholder="Enter Password" name="password")
+        div
+          label(for="confirmedPassword") Confirmed Password
+        input(type="password" placeholder="Confirm Password" name="confirmedPassword")
+        div.clearfix
+          button.cancelbtn(type="button" onclick="location.href= '/'") Cancel
+          button.signupbtn(type="submit" onclick="location.href= '/'") Sign Up
+        //- input(type="submit" value="Create User")
