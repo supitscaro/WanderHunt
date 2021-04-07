@@ -18,8 +18,8 @@
 - [x]  * /post/:id router
 - [x]  * /post/create router
 - [x]  * /post/:id/edit router
-- [ ]  * /users/:id router
-- [ ]  * /users/:id/settings router
+- [x]  * /users/:id router
+- [x]  * /users/:id/settings router
 - [ ]  Home page Pug and CSS
     - [ ]  dynamically show posts
     - [ ]  have to figure out how to display dropdown list for  settings and log out that is hidden unless profile picture is clicked
