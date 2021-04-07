@@ -23,25 +23,60 @@ async function createUsers(num) {
     console.log(users);
     return users;
 }
-
-
-async function createPosts(num) {
-    let description = [];
-    while (num) {
+async function getTitles(num) {
+    let titles = [];
+    let index = 1;
+    while(titles.length <= num) {
+        let result = await fetch(`http://swapi.dev/api/planets/${index}`)
+        if (result){
+            let planet = await result.json()
+            titles.push(planet.name+planet.diameter)
+        }
+        index++;
+    }
+    return titles;
+}
+async function getDescriptions(num) {
+    let descriptions = [];
+    let index = 1
+    while (descriptions.length <= num) {
 
         let postPath = await fetch(`https://hipsum.co/api/?type=hipster-centric&sentences${Math.floor(Math.random() * (5 - 2) + 2)}&paras=${Math.floor(Math.random() * (5 - 2) + 2)}`)
         let descArray = await postPath.json()
-        description.push(posts)
-        num--
+        if (descArray){
+        descriptions.push(descArray.join("\n"));
+        index++;
+        }
     }
-    console.log(description);
+    return descriptions
+}
+async function createPosts(num) {
+
+    let titles = await getTitles(num)
+    let descriptions = await getDescriptions(num)
+    let user_ids = [];
+    let activity_ids = [];
+    let state_ids = [];
+
+    const index = 1
+
+    while(index <= num){
+    let user_id = Math.floor(Math.random() * (50 - 1) + 1)
+    let activity_id = Math.floor(Math.random() * (22 - 1) + 1)
+    let state_id = Math.floor(Math.random() * (51 - 1) + 1)
+    user_ids.push(user_id);
+    activity_ids.push(activity_id)
+    state_ids.push(state_id);
+    }
+    console.log(user_ids);
+
 
 
 
 }
 
 
-createPosts(10);
+createPosts(1);
 
 module.exports = {
     createUsers,
