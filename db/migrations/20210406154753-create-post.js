@@ -20,23 +20,23 @@ module.exports = {
         allowNull: false
       },
       gallery: {
-        type: Sequelize.ARRAY(Sequelize.TEXT),
+        type: Sequelize.TEXT,
         allowNull: false
       },
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {model: "Users"}
+        references: { model: "Users" }
       },
       activity_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {model: "Activities"}
+        references: { model: "Activities" }
       },
       state_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {model: "States"}
+        references: { model: "States" }
       },
       createdAt: {
         allowNull: false,
