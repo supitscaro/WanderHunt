@@ -41,9 +41,9 @@
 ### Friday
 - [ ]  Edit Post Pug and CSS
     - [ ]  double check things are automatically filled in
-- [ ]  Profile Pug and CSS
-    - [ ]  display logged in users name
-    - [ ]  display profile pic
-    - [ ]  display description
-    - [ ]  add "edit profile" button
+- [x]  Profile Pug and CSS
+    - [x]  display logged in users name
+    - [ ]  display profile pic?
+    - [ ]  display description?
+    - [x]  add "edit profile" button
     - [ ]  display posts the user has commented on
