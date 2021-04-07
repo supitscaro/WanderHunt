@@ -16,12 +16,12 @@ block content
         textarea(name="description" id="description" value=post.description)
         label(for="gallery") Gallery
         input(type="text" name="gallery" id="gallery")
-        label(for="location") Location
+        label(for="state") Location
         select(name="state" id="state")
             each state in states
                 option(value=state.id)= state.name
         label(for="activity") Activity
         select(name="activity" id="activity")
             each activity in activities
-                option(value=activity.id)= activity.name
+                option(value=activity.id selected=(activity.id === user.activity_id))= activity.name
         input(type="submit" value="Create Post")

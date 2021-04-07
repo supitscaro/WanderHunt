@@ -3,28 +3,13 @@ extends layout
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
-  link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
+  //- link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
 
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  //- //- h1= title
-  //- //- p Welcome to your Project Skeleton
-  //- nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  //-   a.navbar-brand(href='#') WanderHunt
-  //-   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-  //-     span.navbar-toggler-icon
-  //-   #navbarSupportedContent.collapse.navbar-collapse
-  //-     form.form-inline.my-2.my-lg-0
-  //-       input.form-control.mr-sm-2(type='search' placeholder='Discover your next favorite thing...' aria-label='Search')
-  //-       button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
-  //-     ul.navbar-nav
-  //-       li.nav-item
-  //-         a.nav-link(href='#') Discussions
-  //-       li.nav-item
-  //-         a.nav-link(href='#') Deals
-  //-       li.nav-item
-  //-         a.nav-link(href='#') Jobs
-  //-       li.nav-item
-  //-         a.nav-link(href='#') Ship
+
+  - h1= title
+  - p Welcome to your Project Skeleton
+

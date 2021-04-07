@@ -1,17 +1,26 @@
-extends layout.pug
+
 
 block content
-  if errors 
-    div   
-      p The following error(s) occurred: 
-      ul 
-        each error in errors 
-          li= error 
-          
-  form(action='/users/log-in' method='post')
-    input(type='hidden' name='_csrf' value=csrfToken)
-    label(for="email") Email
-    input(id="email" type="email" name="email")
-    label(for="password") Password
-    input(id="password" type="password" name="password")
-    input(type="submit" value="log-in")
+  link(rel='stylesheet' href='/stylesheets/signup-login.css')
+  if errors
+    div
+      p The following error(s) occurred:
+      ul
+        each error in errors
+          li= error
+
+  div.container
+    h1 Log in
+
+    form(action='/users/log-in' method='post')
+      div
+      input(type='hidden' name='_csrf' value=csrfToken)
+      div
+        label(for="email") Email
+      input(id="email" type="email" name="email")
+      div
+        label(for="password") Password
+      input(id="password" type="password" name="password")
+      div
+        button.loginbtn(type="submit" onclick="'location.href= '/'") Login
+      //- input(type="submit" value="log-in")
