@@ -6,7 +6,7 @@ const express = require('express');
 
 async function createUsers(num) {
     let users = []
-    let index = 1;
+    let index = 31;
     while (index <= num) {
         let result = await fetch(`http://swapi.dev/api/people/${index}`)
         let person = await result.json()
@@ -38,7 +38,7 @@ async function createPosts(num) {
 }
 
 
-createUsers(20);
+createUsers(50);
 
 module.exports = {
     createUsers,
