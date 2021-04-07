@@ -1,5 +1,3 @@
-const {createUsers} = require('.../seeds.js');
-const users = createUsers(20);
 'use strict';
 
 module.exports = {
