@@ -1,5 +1,3 @@
-const {createUsers} = require('.../seeds.js');
-const users = createUsers(20);
 'use strict';
 
 module.exports = {
@@ -9,8 +7,11 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      */
-   return queryInterface.bulkInsert('Users', users, {});
+      return queryInterface.bulkInsert('People', [{
+        name: 'John Doe',
+        isBetaMember: false
+      }], {});
+    */
   },
 
   down: (queryInterface, Sequelize) => {
@@ -19,7 +20,7 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      */
-   return queryInterface.bulkDelete('Users', null, {});
+      return queryInterface.bulkDelete('People', null, {});
+    */
   }
 };
