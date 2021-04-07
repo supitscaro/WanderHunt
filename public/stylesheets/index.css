@@ -6,3 +6,25 @@ h1 {
     display: flex;
     flex-wrap: nowrap;
 }
+
+.body-container {
+    display: grid;
+    grid-template-areas:
+    "mp mp a"
+    "r r a"
+    "r r s"
+    "r r s";
+}
+
+#popular {
+    grid-area: "mp";
+}
+#recent {
+    grid-area: "r";
+}
+#activity {
+    grid-area: "a";
+}
+#state {
+    grid-area: "s";
+}
