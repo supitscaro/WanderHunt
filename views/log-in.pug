@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 
 block content
@@ -25,22 +24,3 @@ block content
       div
         button.loginbtn(type="submit" onclick="'location.href= '/'") Login
       //- input(type="submit" value="log-in")
-=======
-extends layout.pug
-
-block content
-  if errors 
-    div   
-      p The following error(s) occurred: 
-      ul 
-        each error in errors 
-          li= error 
-          
-  form(action='/users/log-in' method='post')
-    input(type='hidden' name='_csrf' value=csrfToken)
-    label(for="email") Email
-    input(id="email" type="email" name="email")
-    label(for="password") Password
-    input(id="password" type="password" name="password")
-    input(type="submit" value="log-in")
->>>>>>> 09533e9b5ae4652cdd5987ca0aa05c375d224484
