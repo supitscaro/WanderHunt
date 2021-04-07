@@ -1,34 +1,45 @@
-- [ ]  * User table
-- [ ]  * Post table
-- [ ]  * Comments table
-- [ ]  * Activity table
-- [ ]  * State table
+### Monday
+- [x] User authentication
+
+### Tuesday
+- [x]  * User table
+- [x]  * Post table
+- [x]  * Comments table
+- [x]  * Activity table
+- [x]  * State table
+- [x]  Sign up Pug and CSS
+- [x]  Log in Pug and CSS
+- [x]  Navigation bar CSS
+
+### Wednesday
 - [ ]  * Seeders
-- [ ]  ** Demo user
-- [ ]  * /log-in router
-- [ ]  * /sign-up router
-- [ ]  * /post router
-- [ ]  * /post/:id router
-- [ ]  * /post/create router
-- [ ]  * /post/:id/edit router
+- [x]  * /log-in router
+- [x]  * /sign-up router
+- [x]  * /post/:id router
+- [x]  * /post/create router
+- [x]  * /post/:id/edit router
 - [ ]  * /users/:id router
 - [ ]  * /users/:id/settings router
+- [ ]  Home page Pug and CSS
+    - [ ]  dynamically show posts
+    - [ ]  have to figure out how to display dropdown list for  settings and log out that is hidden unless profile picture is clicked
+- [ ]  ** Demo user
+
+### Thursday
 - [ ]  API for DELETE /comments/:id
 - [ ]  API for POST /comments/:id
 - [ ]  API for PUT /comments/:id
-- [ ]  Navigation bar CSS
-- [ ]  Home page Pug and CSS
-    - [ ]  dynamically show posts
-    - [ ]  have to figure out how to display dropdown list for settings and log out that is hidden unless profile picture is clicked
 - [ ]  Posts Pug and CSS
     - [ ]  Comments Pug? and CSS
     - [ ]  Need to figure out how to show pictures user uploads
     - [ ]  make comment input available if user is logged in
     - [ ]  add button to let user edit their comment
     - [ ]  allow post creator to edit their post
-- [ ]  Sign up Pug and CSS
-- [ ]  Log in Pug and CSS
-- [ ]  Edit post Pug and CSS
+- [ ] Create Post Pug and CSS
+    - [ ] should be pretty similar, if not exactly the same, as the edit post so it should be pretty easy to finish the edit post page on friday
+
+### Friday
+- [ ]  Edit Post Pug and CSS
     - [ ]  double check things are automatically filled in
 - [ ]  Profile Pug and CSS
     - [ ]  display logged in users name
