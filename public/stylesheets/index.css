@@ -10,20 +10,6 @@ h1 {
 .body-container {
     background-color: #F5F5F5;
 }
-    /* float: left;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr, 1fr, 1fr, 1fr;
-    grid-template-areas:
-    "mp mp a"
-    "r r a"
-    "r r s"
-    "r r s";
-    height: 100%;
-    width: 100%; */
-    /* size: 90%;
-
-} */
 .left-column{
     float: left;
     width: 66.66%;
