@@ -4,7 +4,7 @@ const { csrfProtection, asyncHandler } = require("./utils");
 const { User } = require("../db/models");
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const { loginUser, restoreUser } = require('../auth.js');
+const { loginUser, restoreUser, requireAuth } = require('../auth.js');
 
 const userValidators = [
   check('username')
@@ -119,7 +119,52 @@ router.post('/log-in', csrfProtection, loginValidators,
       csrfToken: req.csrfToken(),
     });
   })
-)
+);
 
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+  let userId = parseInt(req.params.id, 10);
+  let user = await User.findByPk(userId);
+
+  res.render('profile-page', { user });
+}));
+
+router.get('/:id(\\d+)/settings', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
+  let userId = parseInt(req.params.id, 10);
+  let user = await User.findByPk(userId);
+
+  if (userId === res.locals.user.id) {
+    res.render('edit-profile', { user, csrfToken: req.csrfToken() });
+  } else {
+    // set up not authorized page?
+    res.redirect('/');
+  }
+}));
+
+router.post('/:id(\\d+)/settings', userValidators, csrfProtection, requireAuth, asyncHandler(async (req, res) => {
+  const { password, username, email } = req.body;
+  let userId = parseInt(req.params.id, 10);
+  let userToUpdate = await User.findByPk(userId);
+
+  const validationErrors = validationResult(req);
+  let user = { username, email };
+  let errors = [];
+
+  if (validationErrors.isEmpty()) {
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    user['hashedPassword'] = hashedPassword;
+
+    await userToUpdate.update(user);
+
+    res.redirect(`/${userId}`);
+  } else {
+    validationErrors.array().map((e) => errors.push(e.msg));
+    res.render('edit-profile', {
+      user,
+      errors,
+      csrfToken: req.csrfToken(),
+    })
+  }
+}));
 
 module.exports = router;
