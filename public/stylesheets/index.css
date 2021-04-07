@@ -9,22 +9,48 @@ h1 {
 
 .body-container {
     display: grid;
+    grid-template-columns: 3;
+    grid-template-rows: 4;
     grid-template-areas:
     "mp mp a"
     "r r a"
     "r r s"
     "r r s";
+    height: 100%;
+    width: 100%;
+
 }
 
 #popular {
+    display: flex;
     grid-area: "mp";
+    grid-column-start: 1;
+    grid-row-start: 1;
+    height: 1fr;
+    width: 2fr;
 }
 #recent {
+    display: flex;
     grid-area: "r";
+    grid-column-start: 1;
+    grid-row-start: 2;
+    height: 3fr;
+    width: 2fr;
+
 }
 #activity {
+    display: flex;
     grid-area: "a";
+    grid-column-start: 3;
+    grid-row-start: 1;
+    height: 2fr;
+    width: 1fr;
 }
 #state {
+    display: flex;
     grid-area: "s";
+    grid-column-start: 3;
+    grid-row-start: 3;
+    height: 2fr;
+    width: 1fr;
 }
