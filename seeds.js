@@ -1,186 +1,116 @@
-const {User, Post, Activity, Comment} = require('./db/models');
+const { User, Post, Activity, Comment } = require('./db/models');
 const fetch = require('node-fetch');
+const bcrypt = require('bcryptjs');
+const express = require('express');
 
-let users = []
 
-async function createUsers() {
-    let test = await fetch("https://swapi.dev/api/people")
-    let people = await test.json()
-    let persons = people.results.forEach((person) => {
-        let password = person.birth_year
+async function createUsers(num) {
+    let users = []
+    let index = 1;
+    while (index <= num) {
+        let result = await fetch(`http://swapi.dev/api/people/${index}`)
+        let person = await result.json()
+        let hashedPassword = await bcrypt.hash((person.birth_year + person.height), 10)
         let username = person.name
+        let email = `${person.name.split(' ').join('')}@email.com`
+        let user = { username, hashedPassword, email }
+        console.log(user);
+        users.push(user);
+
+        index++;
+
+    }
+    users.forEach(async (user) => {
+        await User.create(user)
     })
 
 }
-let emailList = [
-    "prince70@dickens.com",
-    "nwilliamson@yahoo.com",
-    "natalie.effertz@romaguera.biz",
-    "ratke.rossie@hansen.com",
-    "wuckert.jo@hotmail.com",
-    "jkunde@littel.biz",
-    "yullrich@runte.com",
-    "oreilly.zion@fay.net",
-    "porn@shanahan.com",
-    "armstrong.amanda@yahoo.com",
-    "yost.parker@gmail.com",
-    "stefanie.hagenes@gmail.com",
-    "emilio26@koelpin.com",
-    "atromp@hotmail.com",
-    "keagan.grant@gmail.com",
-    "anderson.emelia@lemke.net",
-    "uturner@thompson.com",
-   "fhermiston@rippin.info",
-   "hmcclure@gmail.com",
-   "catharine61@gmail.com",
-   "theresia59@walter.biz",
-   "elyse.kuhic@auer.net",
-   "gbraun@roberts.com",
-   "terrill.erdman@orn.com",
-   "jadyn.bartoletti@gmail.com",
-   "wlarkin@durgan.net",
-   "mariana33@yahoo.com",
-   "phowell@prosacco.com",
-   "rice.irving@yahoo.com",
-    "andre85@wiegand.net",
-    "zschamberger@hotmail.com",
-    "bfranecki@schuppe.com",
-    "schuppe.vallie@hotmail.com",
-    "scot65@gmail.com",
-    "jolie25@sauer.com",
-    "pbernhard@hotmail.com",
-    "arch43@roberts.com",
-    "amanda63@gmail.com",
-    "jocelyn.spencer@hackett.org",
-    "jrath@hotmail.com",
-    "malachi24@ledner.net",
-    "alexandre02@ondricka.net",
-    "bauch.kiarra@kovacek.com",
-    "graham.treutel@hotmail.com",
-    "tremaine74@mitchell.org",
-    "vking@powlowski.org",
-    "ikozey@hotmail.com",
-    "imclaughlin@hotmail.com",
-    "qlangosh@gmail.com",
-    "cummerata.lisandro@considine.com",
-    "gruecker@gmail.com",
-    "cummings.alden@cartwright.info",
-    "aflatley@gmail.com",
-    "kale57@berge.com",
-    "alyson51@mccullough.com",
-    "zmills@gmail.com",
-    "omcdermott@stroman.com",
-    "gail17@hyatt.info",
-    "jmills@yahoo.com",
-    "mervin72@yahoo.com",
-    "cassin.thalia@rice.com",
-    "karlie99@jast.com",
-    "hyatt.jacky@gmail.com",
-    "emely88@rutherford.org",
-    "mgerlach@yahoo.com",
-    "kiel09@kuhn.biz",
-    "zeffertz@yahoo.com",
-    "sbeahan@stiedemann.com",
-    "natasha50@schmidt.com",
-    "peyton14@gmail.com",
-    "orobel@harber.com",
-    "koss.eve@gmail.com",
-    "koreilly@wilderman.biz",
-    "jjast@hotmail.com",
-    "leannon.sydni@waelchi.com",
-    "jaskolski.tobin@gmail.com",
-    "theodore01@torp.com",
-    "cordie.emmerich@yahoo.com",
-    "malcolm10@cummerata.biz",
-    "kavon.bauch@hoeger.com",
-    "hodkiewicz.kayley@ziemann.com",
-    "isac.jacobson@koss.com",
-    "trevor.bogan@hotmail.com",
-    "sreinger@frami.info"]
 
 let activities = [
-    "Backpacking",
-    "Camping",
-    "Hiking",
-    "Climbing",
-    "Caving",
-    "Ice Climbing",
-    "Mountaineering",
-    "Cycling",
-    "Mountain Biking",
-    "Geocaching",
-    "Running",
-    "Photography",
-    "Exploring",
-    "Snowsports",
-    "Kayaking",
-    "Kayaking",
-    "Cruising",
-    "Safari",
-    "Watersports",
-    "Snorkeling",
-    "picnicing",
-    "Sightseeing"]
-
-    // let states = [
-    //     "Alabama", "AL"
-    //     "Alaska", "AK"
-    //     "Arizona", "AZ"
-    //     "Arkansa", "AR"
-    //     "California", "CO"
-    //     "Connecticut", "CT"
-    //     "Delaware",	"DE"
-    //     "Florida", "FL"
-    //     "Georgia", "GA"
-    //     "Hawaii", "HI"
-    //     "Idaho", "ID"
-    //     "Illinois",	"IL"
-    //     "Indiana", "IN"
-    //     "Iowa",	"IA"
-    //     "Kansas", "KS"
-    //     "Kentucky",	"KY"
-    //     "Louisiana", "LA"
-    //     "Maine", "ME"
-    //     "Maryland",	"MD"
-    //     "Massachusetts", "MA"
-    //     "Michigan", "MI"
-    //     "Minnesota", "MN"
-    //     "Mississippi", "MS"
-    //     "Missouri",	"MO"
-    //     "Montana", "MT"
-    //     "Nebraska",	"NE"
-    //     "Nevada", "NV"
-    //     "New Hampshire", "NH"
-    //     "New Jersey", "NJ"
-    //     "New Mexico", "NM"
-    //     "New York",	"NY"
-    //     "North Carolina", "NC"
-    //     "North Dakota",	"ND"
-    //     "Ohio", "OH"
-    //     "Oklahoma", "OK"
-    //     "Oregon", "OR",
-    //     "Pennsylvania", "PA"
-    //     "Rhode Island", "RI"
-    //     "South Carolina", "SC"
-    //     "South Dakota", "SD"
-    //     "Tennessee", "TN"
-    //     "Texas", "TX"
-    //     "Utah", "UT"
-    //     "Vermont", "VT"
-    //     "Virginia", "VA"
-    //     "Washington", "WA"
-    //     "West Virginia", "WV"
-    //     "Wisconsin", "WI"
-    //     "Wyoming", "WY"
-    //     ]
+    { name: "Backpacking" },
+    { name: "Camping" },
+    { name: "Hiking" },
+    { name: "Climbing" },
+    { name: "Caving" },
+    { name: "Ice Climbing" },
+    { name: "Mountaineering" },
+    { name: "Cycling" },
+    { name: "Mountain Biking" },
+    { name: "Geocaching" },
+    { name: "Running" },
+    { name: "Photography" },
+    { name: "Exploring" },
+    { name: "Snowsports" },
+    { name: "Kayaking" },
+    { name: "Kayaking" },
+    { name: "Cruising" },
+    { name: "Safari" },
+    { name: "Watersports" },
+    { name: "Snorkeling" },
+    { name: "picnicing" },
+    { name: "Sightseeing" }
+]
 
 
+let states = [
+    { name: "Alabama", abbr: "AL" },
+    { name: "Alaska", abbr: "AK" },
+    { name: "Arizona", abbr: "AZ" },
+    { name: "Arkansa", abbr: "AR" },
+    { name: "California", abbr: "CO" },
+    { name: "Connecticut", abbr: "CT" },
+    { name: "Delaware", abbr: "DE" },
+    { name: "Florida", abbr: "FL" },
+    { name: "Georgia", abbr: "GA" },
+    { name: "Hawaii", abbr: "HI" },
+    { name: "Idaho", abbr: "ID" },
+    { name: "Illinois", abbr: "IL" },
+    { name: "Indiana", abbr: "IN" },
+    { name: "Iowa", abbr: "IA" },
+    { name: "Kansas", abbr: "KS" },
+    { name: "Kentucky", abbr: "KY" },
+    { name: "Louisiana", abbr: "LA" },
+    { name: "Maine", abbr: "ME" },
+    { name: "Maryland", abbr: "MD" },
+    { name: "Massachusetts", abbr: "MA" },
+    { name: "Michigan", abbr: "MI" },
+    { name: "Minnesota", abbr: "MN" },
+    { name: "Mississippi", abbr: "MS" },
+    { name: "Missouri", abbr: "MO" },
+    { name: "Montana", abbr: "MT" },
+    { name: "Nebraska", abbr: "NE" },
+    { name: "Nevada", abbr: "NV" },
+    { name: "New Hampshire", abbr: "NH" },
+    { name: "New Jersey", abbr: "NJ" },
+    { name: "New Mexico", abbr: "NM" },
+    { name: "New York", abbr: "NY" },
+    { name: "North Carolina", abbr: "NC" },
+    { name: "North Dakota", abbr: "ND" },
+    { name: "Ohio", abbr: "OH" },
+    { name: "Oklahoma", abbr: "OK" },
+    { name: "Oregon", abbr: "OR" },
+    { name: "Pennsylvania", abbr: "PA" },
+    { name: "Rhode Island", abbr: "RI" },
+    { name: "South Carolina", abbr: "SC" },
+    { name: "South Dakota", abbr: "SD" },
+    { name: "Tennessee", abbr: "TN" },
+    { name: "Texas", abbr: "TX" },
+    { name: "Utah", abbr: "UT" },
+    { name: "Vermont", abbr: "VT" },
+    { name: "Virginia", abbr: "VA" },
+    { name: "Washington", abbr: "WA" },
+    { name: "West Virginia", abbr: "WV" },
+    { name: "Wisconsin", abbr: "WI" },
+    { name: "Wyoming", abbr: "WY" }
+]
 
 
-async function createPosts(num){
+
+
+async function createPosts(num) {
     let description = [];
-    while(num){
-        let postPath = await fetch(`https://hipsum.co/api/?type=hipster-centric&sentences${Math.floor(Math.random()*(5-2)+2)}&paras=${Math.floor(Math.random()*(5-2)+2)}`)
+    while (num) {
+        let postPath = await fetch(`https://hipsum.co/api/?type=hipster-centric&sentences${Math.floor(Math.random() * (5 - 2) + 2)}&paras=${Math.floor(Math.random() * (5 - 2) + 2)}`)
         let posts = await postPath.json()
         description.push(posts)
         num--
@@ -190,6 +120,11 @@ async function createPosts(num){
 
 
 }
-  createPosts(10)
 
-createUsers();
+
+createUsers(10);
+
+module.exports = {
+    createUsers,
+    createPosts
+}
