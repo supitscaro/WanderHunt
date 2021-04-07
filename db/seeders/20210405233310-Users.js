@@ -13,231 +13,346 @@ module.exports = {
    return queryInterface.bulkInsert('Users', [
     {
       username: 'Luke Skywalker',
-      hashedPassword: '$2a$10$jbVCQDF4L2KmiS6P84o4OOYIaieYU.LYkAN9c9najlt9deu6AhxKC',
-      email: 'LukeSkywalker@email.com'
+      hashedPassword: '$2a$10$ZbvwtzpMb.b0Yiqq3yPOs.Gia8LGj9gO/4c2a8Hgnw/9yYGc0Mzua',
+      email: 'LukeSkywalker@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'C-3PO',
-      hashedPassword: '$2a$10$0CtviMIlloTxUUA/LOlI2ulCfv/o64sv1yp9.ngSdssdvvv.fHJCK',
-      email: 'C-3PO@email.com'
+      hashedPassword: '$2a$10$.EJ7GBfbO.EpRyVWCYJeX.7x3Lq2bS3Mw49HWyRI06olYiwsDE5M2',
+      email: 'C-3PO@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'R2-D2',
-      hashedPassword: '$2a$10$hUIUD2om4i5Z4LK0uXX5bOeRvY2bZoa8JDgI8gSyJjisqsyO98mU6',
-      email: 'R2-D2@email.com'
+      hashedPassword: '$2a$10$Y62NTJIz7sjLJ0KfQdP03upF.OsD/XEQYxmSZ2SytWkaZTkfQvCDW',
+      email: 'R2-D2@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Darth Vader',
-      hashedPassword: '$2a$10$tZBrFVMqh1mOuxsz563rWecwZ6ecFoe.7QsHX8TBDssl64AHHFQTu',
-      email: 'DarthVader@email.com'
+      hashedPassword: '$2a$10$6ceIbr9FahZfxSDCLgJoiu/.y3dXKuvx2AkzWOXpAgcnVrVZ9sKWm',
+      email: 'DarthVader@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Leia Organa',
-      hashedPassword: '$2a$10$DC5hDz72GJ4JSwiRe/U12u25cPVM7axc0TF1VUuXP3pLVNSblQAri',
-      email: 'LeiaOrgana@email.com'
+      hashedPassword: '$2a$10$f7gjKavTstC3ts5nJrw6ZOV14VWqsHya5BiYp5hMw.CRTzmqRVTLm',
+      email: 'LeiaOrgana@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Owen Lars',
-      hashedPassword: '$2a$10$CeJ9wInbuxNGae5O7A2TwO/iRr/EajZ8ADTNomZo3.yxMB3WWkKJ.',
-      email: 'OwenLars@email.com'
+      hashedPassword: '$2a$10$LGsuxdBVsWWZLP24oMQ7R.AmUW/sPFrFb3Y7aSUnQmaSUBJU2gdyW',
+      email: 'OwenLars@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Beru Whitesun lars',
-      hashedPassword: '$2a$10$nXFrEhcvohDlR3GugVLTHeYc2prV3STRcu4oSDSCGoTdqWkKLs8Wa',
-      email: 'BeruWhitesunlars@email.com'
+      hashedPassword: '$2a$10$GpVWbuRTELv/7gQ857xKzuT/0rbvyp.n8lN74UMmTUZNyGM06b.V6',
+      email: 'BeruWhitesunlars@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'R5-D4',
-      hashedPassword: '$2a$10$DJDcV1YD3ZJczOuFMiGpAuhX93RaAax3w37o2tTy/xNaZwXZOQ1pG',
-      email: 'R5-D4@email.com'
+      hashedPassword: '$2a$10$2s/lA4p6l4O8Pd3ywB0Dpep.dcLecN7LtV3/VXAc/gN.5lpQDqr7i',
+      email: 'R5-D4@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Biggs Darklighter',
-      hashedPassword: '$2a$10$0YfMlFcQ7rSvMJh.LTz9zOJ9JegxFuN7hvQUjhhUFZ4VNUXvOhX.C',
-      email: 'BiggsDarklighter@email.com'
+      hashedPassword: '$2a$10$HJuSTI3zsbeDwunBAhfy4OqfjVnZ9vy5clasvLIr79hFiP5Mi6F.S',
+      email: 'BiggsDarklighter@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Obi-Wan Kenobi',
-      hashedPassword: '$2a$10$ce0.M7ZpkojH2bQOgoi1J.Wb9SuRAlS3SPYIwgXMrTEY9nRit30Gu',
-      email: 'Obi-WanKenobi@email.com'
+      hashedPassword: '$2a$10$CmHM8CKjLUxTw/FNeouq8ee8N.FwaX/beVu0CN8amOKQrT/XPI8u.',
+      email: 'Obi-WanKenobi@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Anakin Skywalker',
-      hashedPassword: '$2a$10$wXjHLWbCrQQvTkTDEzMZLuRhxd4ayjxUPWONaV3gzXvenFvR1y/rm',
-      email: 'AnakinSkywalker@email.com'
+      hashedPassword: '$2a$10$ahbEB6GsvcSTWkTCCPUKeedkLn5mamtlWbgrle1WFBZBPktad85J6',
+      email: 'AnakinSkywalker@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Wilhuff Tarkin',
-      hashedPassword: '$2a$10$97FX98hXFTqL8DwvL5jxYutR8VaygHvNEtLPEEfx0laeuIoTArBTe',
-      email: 'WilhuffTarkin@email.com'
+      hashedPassword: '$2a$10$3cQ.mfIBvU1P1/XS7xAOxOqMM1oRxjRBv85/9cbFmiYKSMnVYShz2',
+      email: 'WilhuffTarkin@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Chewbacca',
-      hashedPassword: '$2a$10$M5FHo5IrqdsQ.oej6jKNJuLCTUu4lKJR3agGp3uCAS7RxRpJFWZnO',
-      email: 'Chewbacca@email.com'
+      hashedPassword: '$2a$10$H3x.0HiQD6vCCP4HLHHvluOEJJFsPqJklQ5YyiBOEyJ.oIuKWFzg2',
+      email: 'Chewbacca@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Han Solo',
-      hashedPassword: '$2a$10$511PcxQIAerKxC6gmUPHZumqOOET7qrS5pq2Jy28JP/PIY70GhKFa',
-      email: 'HanSolo@email.com'
+      hashedPassword: '$2a$10$5x/mJ.OuWA9pWlpy5MnNL.c3AsYej13o.UmfADE9FPRqxiPIsjDfy',
+      email: 'HanSolo@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Greedo',
-      hashedPassword: '$2a$10$WVjcTdLWkUOwjfDR7Bkk4ePg3zEFY2AfDJ2nhBQUDQsNfdZvLcYWq',
-      email: 'Greedo@email.com'
-    },{
+      hashedPassword: '$2a$10$xoNSxEegU21RO12UW92uzOynKd6gBOvFiZ6QJSsk34kib.F2BFWpu',
+      email: 'Greedo@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      username: 'Jabba Desilijic Tiure',
+      hashedPassword: '$2a$10$3LXTJf7anRvGuUr236XZ6uv911z6i.2GEbkgNs/vGYO6f/5SlhcpK',
+      email: 'JabbaDesilijicTiure@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      username: 'Wedge Antilles',
+      hashedPassword: '$2a$10$LWrj8jgoFuVk6/DLGMltm.gSGZ72OyVnbi465OGxoIU5NgNMdmLAy',
+      email: 'WedgeAntilles@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      username: 'Jek Tono Porkins',
+      hashedPassword: '$2a$10$doy/ePpTlmKsBxxytPFJIec6HPMT6jW5TJAIsDcdgX4X/viw8GmpG',
+      email: 'JekTonoPorkins@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
       username: 'Yoda',
-      hashedPassword: '$2a$10$wwUOrNZbmknx7FEmsWOglOFmiUEv.mEHhAPUS.18NapYF8viGqNEK',
-      email: 'Yoda@email.com'
+      hashedPassword: '$2a$10$XmTjYNaGvubHrt0B2vtQ4.sBAX9RI1L/oYLf1drgycq6kMyNoblYO',
+      email: 'Yoda@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Palpatine',
-      hashedPassword: '$2a$10$AYhQHGKHh.mNd781slYvfuWQkNUs3HXKYTcQaQFo5/2zDWMVhfY7S',
-      email: 'Palpatine@email.com'
+      hashedPassword: '$2a$10$U.QW7gPTonlizc45el.o5uxgrdsSzXyFxJesm/K4UoYtv4Hdij.Oq',
+      email: 'Palpatine@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Boba Fett',
-      hashedPassword: '$2a$10$KzQJd/kmLvgC4FhXy1nPSuETmWSl6FQBmCge0iqiqOlfGxTjIAVvS',
-      email: 'BobaFett@email.com'
+      hashedPassword: '$2a$10$B761QiSd8C7ZmSl3MAGsoukZ9VTCimpl62Lgbn8Vo4z5m/TWJf1iy',
+      email: 'BobaFett@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'IG-88',
-      hashedPassword: '$2a$10$4cBILcfXiWcxCZn7pYS.VOq4gInaE7Nxm3hluXDdOVvpycRVWYGw6',
-      email: 'IG-88@email.com'
+      hashedPassword: '$2a$10$vF.aP/xqO/mRy5zbwB.zve5IKj29L3xmbxXIVGrli70esp2Dezq4C',
+      email: 'IG-88@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Bossk',
-      hashedPassword: '$2a$10$P3KfuRhLXfdbneqLfzkj1OiEJWY0PyCamy8BI97JYCmd2uUcHQA.S',
-      email: 'Bossk@email.com'
+      hashedPassword: '$2a$10$d2N.oiV3jZxkdsPaEIZqauz7bwTUqwoMsnexmmio2ENeK/CxN6e7W',
+      email: 'Bossk@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Lando Calrissian',
-      hashedPassword: '$2a$10$MsJRqxNe9Yufs2xq9xfhYevUhpdwQdhOlAGNlRpmrfudLgUNM32sW',
-      email: 'LandoCalrissian@email.com'
+      hashedPassword: '$2a$10$KHlD/L0flKm/x1YgORNi3OLU/Hpl8ShbECYlomzhXDz2xjxdJ3p96',
+      email: 'LandoCalrissian@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Lobot',
-      hashedPassword: '$2a$10$wOl8jVwixcsFKy4VHc9u8uSUUDKs2Rx0Y07gP8BqvXlDdlME2KwKS',
-      email: 'Lobot@email.com'
+      hashedPassword: '$2a$10$WkbCJJyeHioztcU30AmFueml/hh6M2lHuOll1dyFbcPr4cfx6UTim',
+      email: 'Lobot@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Ackbar',
-      hashedPassword: '$2a$10$rWBW.p0XpunvdMNc6ZJ6Se0DoSbScsFKO.oF81GbNo5M/iBUosjTS',
-      email: 'Ackbar@email.com'
+      hashedPassword: '$2a$10$FVjXKepY/uz1rI9HyVo/ROqnJY.Qu8FHyr8bLGHy1RXMt/mFy7JOm',
+      email: 'Ackbar@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Mon Mothma',
-      hashedPassword: '$2a$10$nNmkjW00Vj7h/qcizP.pNe7rwj.cKVb6pTjryeKN2i2nyvocrcQKK',
-      email: 'MonMothma@email.com'
+      hashedPassword: '$2a$10$KpHbsuERZo2.TFCZpt7V1OHGh4AA7eFkmUqKlMw8vNGEUh9KZguqW',
+      email: 'MonMothma@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Arvel Crynyd',
-      hashedPassword: '$2a$10$Bp9Lw5cSWNeYwyfDSF2MUOchK6WMnj9rNUr2kKXR5pzYqTcRrGC2y',
-      email: 'ArvelCrynyd@email.com'
+      hashedPassword: '$2a$10$HzwY6No1v3UecBzB8/TvueWiPUCvOHlUVxrJKzvZ11ptuTQoBxeq6',
+      email: 'ArvelCrynyd@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Wicket Systri Warrick',
-      hashedPassword: '$2a$10$zSgxvQX3eHwkorUo010ckOUVbLh4kPTGJwFpOON8t6RgAZf.M2FKy',
-      email: 'WicketSystriWarrick@email.com'
-    },{
+      hashedPassword: '$2a$10$eiqkMPAXPqkvwUxxoNHyfOdK6KPZ1PzPEE3y9r9DaR0k05bxGt6rO',
+      email: 'WicketSystriWarrick@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
       username: 'Nien Nunb',
-      hashedPassword: '$2a$10$MHoA8m2q/87kDaHVDAePkOP5Dx8XmpuLjxELRGPsKQO32y0r0Uor2',
-      email: 'NienNunb@email.com'
+      hashedPassword: '$2a$10$hKB7VZs9fV1fOn5m.EIn6eN5IhESp6R71LQS6PSH89ehKfsptHXiO',
+      email: 'NienNunb@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Qui-Gon Jinn',
-      hashedPassword: '$2a$10$/NkYn3o8ZPP0C8wv9GdmEedIQqtagsiK3tkKuVLidIV3OvXnzyrZy',
-      email: 'Qui-GonJinn@email.com'
+      hashedPassword: '$2a$10$gMRswSUMP2YiT8xjw69T9ebPxKHLpDIsdbQNUhdabAxv237Hc9TxG',
+      email: 'Qui-GonJinn@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Nute Gunray',
-      hashedPassword: '$2a$10$XPaQu.f86.y5lkDJp2FAbu3LNwVL6dkaAnbY9q1u5XIJLWM1.rK5C',
-      email: 'NuteGunray@email.com'
+      hashedPassword: '$2a$10$uJb.Iu5/a10b70XmEUPo5e6tAwnuug7Y7ZfrlfHTa1ysiUPdgLLL.',
+      email: 'NuteGunray@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Finis Valorum',
-      hashedPassword: '$2a$10$l54Y1ce0M6nnMCaL3pRhqOyq7EVENN/IMJ9qCF4HfpDnCZIkcapv2',
-      email: 'FinisValorum@email.com'
+      hashedPassword: '$2a$10$fcMtAI3FOS8NFQsx6dHmn.yRrDGjXI57vs1IUXf5j09anwz7wmtUq',
+      email: 'FinisValorum@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Padmé Amidala',
-      hashedPassword: '$2a$10$j60O4BBVaWeBEHx98cuDQuMv6ifA2zvPCUPHHMdqd1V/Y7oGonK.e',
-      email: 'PadméAmidala@email.com'
+      hashedPassword: '$2a$10$O0yQFsIO51qhTpPrt5ZIjuojxRgjbTxZh/5dBMMsguhnXsSz54aUS',
+      email: 'PadméAmidala@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Jar Jar Binks',
-      hashedPassword: '$2a$10$fEnmX2PjoA/MIv2SfDnzde8m/6xdvBTGukJYroRzm7HWF9p1a6GNC',
-      email: 'JarJarBinks@email.com'
+      hashedPassword: '$2a$10$zXaNuHz/Cqn0ZvqhjTrtcOHGK4mYwjI2/RcP4FGEKnbC9Fx0Z7eNW',
+      email: 'JarJarBinks@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Roos Tarpals',
-      hashedPassword: '$2a$10$2ih42tsH4Ku08vLhbqHMEOpPJusa.MxdR/viwTXUIRMQmm7J6JcAG',
-      email: 'RoosTarpals@email.com'
+      hashedPassword: '$2a$10$ErFliFQWzena9hWSFXeHGOL.cTc0zgrKAt7eSkGUMkIaPhJjsgwdm',
+      email: 'RoosTarpals@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Rugor Nass',
-      hashedPassword: '$2a$10$XA5uGsENd.zPIIIOikcKZ.XveQFXCgaob.33ne9AaAo4gyXO8KVkS',
-      email: 'RugorNass@email.com'
+      hashedPassword: '$2a$10$3J3gIDNY9mZ4VGKKHwcb6eqbseY4I0PGmnjswNpq9cS7fULLbN/Ny',
+      email: 'RugorNass@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Ric Olié',
-      hashedPassword: '$2a$10$N4X947tGRMu8/AojPPfZWOedN.scDuGsxHec5VdOswB9ebEm2pMNG',
-      email: 'RicOlié@email.com'
+      hashedPassword: '$2a$10$76Vksc84Z7xv2GL4VL8vPuFCkrAx8yCIfQS4onZ70evhu6040usJu',
+      email: 'RicOlié@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Watto',
-      hashedPassword: '$2a$10$FlWW9D014YKsGpe0pGjoPeVc4pbEq7iMAEOBcCQVAZuSBSyPKNjLK',
-      email: 'Watto@email.com'
+      hashedPassword: '$2a$10$8a.ICkZwMhscOyzk0W78SOG9o54zkP2nPWBHdhVWsfMlNi1yZ/36O',
+      email: 'Watto@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Sebulba',
-      hashedPassword: '$2a$10$yUbF94fg01QVh8wAzXRi0egd0RY3Av4nkMqd70qdcAXRE2Faja8eC',
-      email: 'Sebulba@email.com'
+      hashedPassword: '$2a$10$lD1im7mZIeaOGLendR5nHeELLpJ8rFVnr.vWWihVen61WkBb/sMwO',
+      email: 'Sebulba@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Quarsh Panaka',
-      hashedPassword: '$2a$10$gwoMDUecr8yrXc3H2avuhOZ8l4Tc1R0BoqFyLd3phi51BXSzYqVJ6',
-      email: 'QuarshPanaka@email.com'
+      hashedPassword: '$2a$10$BzeQz8wWoodDVd/kqeLx6OkmdU5uCPVyDIa4hpIR6RpyO17USVm/K',
+      email: 'QuarshPanaka@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Shmi Skywalker',
-      hashedPassword: '$2a$10$zi1yXTJ7dKNKNt3mXZC0Wu8Aky9okIDZF53z71Hi65N4/zEt/j4sW',
-      email: 'ShmiSkywalker@email.com'
+      hashedPassword: '$2a$10$ScWLkVrpiZSHTYI0TDNz1OLjjycybzswzR2euFHT5b/uDhHDdeFPC',
+      email: 'ShmiSkywalker@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Darth Maul',
-      hashedPassword: '$2a$10$ifTEGqJjnUHZHrG7UjslLuvNol0zeQpwjpZJvklAtSWiNu6HXBkAW',
-      email: 'DarthMaul@email.com'
+      hashedPassword: '$2a$10$rh/shKtBS8Q6SN45sB/s/O7ufhbjvd34IJIcTplx0BUENxyu4n7yW',
+      email: 'DarthMaul@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Bib Fortuna',
-      hashedPassword: '$2a$10$9K.psqDGavWnW/3WKItN2Otm58kDUA7kt8AbfGLbGkWa2VTt1XyYK',
-      email: 'BibFortuna@email.com'
+      hashedPassword: '$2a$10$cczvNZBN4RaTURX/ByZ8kOVKBv8nJbTHVEShlMOfY29BdY6VT6IjS',
+      email: 'BibFortuna@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Ayla Secura',
-      hashedPassword: '$2a$10$pNLvzjiC0NKFWDwAxKLXS.YLoC2i2s2437/qsj/tonRWiyXNr9N1K',
-      email: 'AylaSecura@email.com'
+      hashedPassword: '$2a$10$TcqnkcUtne1bN.cM27up2OgYiWz6r/nlt6zuoQQ7tz6bd8UFEgpsW',
+      email: 'AylaSecura@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Ratts Tyerel',
-      hashedPassword: '$2a$10$lVRCZXdqL5LL1aVkbRXWfOcrzvQn5A0OGZoI8JC.h3/1rVBCXaXTe',
-      email: 'RattsTyerel@email.com'
+      hashedPassword: '$2a$10$OfpZj.11uIzYYVHpaQbw0eMcP1jCbY3843hy/8zhXjPCbzQm0KdQS',
+      email: 'RattsTyerel@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Dud Bolt',
-      hashedPassword: '$2a$10$LChNrwHF.fcZJan4cq.OUOy21Sf0BPfQmnbvOp.3uI.cS.eZ6Gp3S',
-      email: 'DudBolt@email.com'
+      hashedPassword: '$2a$10$kiCj96uObjE0Fri2igFCY.wWF8nxJjrXZZMJcYXf3yt249LdxKgEK',
+      email: 'DudBolt@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Gasgano',
-      hashedPassword: '$2a$10$spsxFlSw5bRJs1ilRwNXTOkVhEwMmlDnZq9ONKk3t.2r4xsx3E8sK',
-      email: 'Gasgano@email.com'
+      hashedPassword: '$2a$10$dWxzLchVEYQ7AHTGKRRHcu84l.LJt2HoJBxutjC/CxraK8GH9whRG',
+      email: 'Gasgano@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       username: 'Ben Quadinaros',
-      hashedPassword: '$2a$10$AiTqKohkuIRfN/ar7/SdquRwxStMq/PZUk2hRWpSZ4M9CtiW790Pa',
-      email: 'BenQuadinaros@email.com'
+      hashedPassword: '$2a$10$9g4kIqG/u5xLvDvHXuf00ul2qsm40qVWIHK9VK.br7qtOxCNSskXG',
+      email: 'BenQuadinaros@email.com',
+      createdAt: new Date(),
+      updatedAt: new Date()
     }
   ], {});
   },
