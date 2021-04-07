@@ -48,18 +48,16 @@ router.post('/create',
 
         let galleryArray = gallery.split(', ');
         let user_id = res.locals.user.id;
-        console.log(state);
+    
         const post = Post.build({title, description, gallery: galleryArray, user_id, state_id: state, activity_id: activity});
         const validationErrors = validationResult(req);
         let errors = [];
         
         if (validationErrors.isEmpty()){
-            console.log('hello')
             await post.save();
             let newPost = await Post.findOne({where : {title: title, description: description}});
             res.redirect(`/post/${newPost.id}`);
         } else {
-            console.log('bad')
             validationErrors.array().map((e) => errors.push(e.msg));
             let activities = await Activity.findAll();
             let states = await State.findAll();
