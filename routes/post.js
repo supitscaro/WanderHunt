@@ -18,7 +18,7 @@ router.get('/create', csrfProtection, requireAuth, asyncHandler(async (req, res)
     let post = Post.build();
     let activities = await Activity.findAll();
     let states = await State.findAll();
-    res.render('create-post', { csrfToken: req.csrfToken(), post, activities, states });
+    res.render('create-post', { csrfToken: req.csrfToken(), post, activities, states, title: 'Create New Post', });
 }));
 
 let postValidators = [
@@ -45,11 +45,11 @@ router.post('/create',
     postValidators, 
     asyncHandler(async (req, res, next) => {
         const { title, description, gallery, state, activity } = req.body;
-
         let galleryArray = gallery.split(', ');
         let user_id = res.locals.user.id;
-    
-        const post = Post.build({title, description, gallery: galleryArray, user_id, state_id: state, activity_id: activity});
+        let activityNum = parseInt(activity, 10);
+        let stateNum = parseInt(state, 10);
+        const post = Post.build({title, description, gallery: galleryArray, user_id, state_id: stateNum, activity_id: activityNum});
         const validationErrors = validationResult(req);
         let errors = [];
         
@@ -62,10 +62,58 @@ router.post('/create',
             let activities = await Activity.findAll();
             let states = await State.findAll();
             res.render('create-post', {
+                title: 'Create New Post',
                 post,
                 errors,
                 activities,
                 states,
+                csrfToken: req.csrfToken(),
+            })
+        }
+}))
+
+router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async(req,res) => {
+    const post_id = parseInt(req.params.id, 10)
+    const post = await Post.findByPk(post_id);
+    let activities = await Activity.findAll();
+    let states = await State.findAll();
+
+    if (post.user_id === res.locals.user.id){
+        res.render('edit-post', { title: 'Edit Post', post, csrfToken: req.csrfToken(), activities, states,})
+    } else {
+        res.redirect('/');
+    }
+}));
+
+router.post('/:id(\\d+)/edit', csrfProtection, 
+    postValidators, 
+    requireAuth, 
+    asyncHandler(async(req,res)=>{
+        const { title, description, gallery, state, activity } = req.body;
+        let galleryArray = gallery.split(', ');
+        const post_id = parseInt(req.params.id, 10)
+        const postToUpdate = await Post.findByPk(post_id);
+        let activityNum = parseInt(activity, 10);
+        let stateNum = parseInt(state, 10);
+        let post = {title, description, gallery: galleryArray, state_id: stateNum, activity_id: activityNum}
+        
+        const validationErrors = validationResult(req);
+        let errors = [];
+        
+        if (validationErrors.isEmpty()){
+            await postToUpdate.update(post);
+            res.redirect(`/post/${post_id}`);
+        } else {
+            validationErrors.array().map((e) => errors.push(e.msg));
+            let activities = await Activity.findAll();
+            let states = await State.findAll();
+            res.render('create-post', {
+                title: 'Create New Post',
+                post,
+                errors,
+                activities,
+                states,
+                test: activity,
                 csrfToken: req.csrfToken(),
             })
         }
