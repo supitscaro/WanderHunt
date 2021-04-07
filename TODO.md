@@ -1,0 +1,38 @@
+- [ ]  * User table
+- [ ]  * Post table
+- [ ]  * Comments table
+- [ ]  * Activity table
+- [ ]  * State table
+- [ ]  * Seeders
+- [ ]  ** Demo user
+- [ ]  * /log-in router
+- [ ]  * /sign-up router
+- [ ]  * /post router
+- [ ]  * /post/:id router
+- [ ]  * /post/create router
+- [ ]  * /post/:id/edit router
+- [ ]  * /users/:id router
+- [ ]  * /users/:id/settings router
+- [ ]  API for DELETE /comments/:id
+- [ ]  API for POST /comments/:id
+- [ ]  API for PUT /comments/:id
+- [ ]  Navigation bar CSS
+- [ ]  Home page Pug and CSS
+    - [ ]  dynamically show posts
+    - [ ]  have to figure out how to display dropdown list for settings and log out that is hidden unless profile picture is clicked
+- [ ]  Posts Pug and CSS
+    - [ ]  Comments Pug? and CSS
+    - [ ]  Need to figure out how to show pictures user uploads
+    - [ ]  make comment input available if user is logged in
+    - [ ]  add button to let user edit their comment
+    - [ ]  allow post creator to edit their post
+- [ ]  Sign up Pug and CSS
+- [ ]  Log in Pug and CSS
+- [ ]  Edit post Pug and CSS
+    - [ ]  double check things are automatically filled in
+- [ ]  Profile Pug and CSS
+    - [ ]  display logged in users name
+    - [ ]  display profile pic
+    - [ ]  display description
+    - [ ]  add "edit profile" button
+    - [ ]  display posts the user has commented on
