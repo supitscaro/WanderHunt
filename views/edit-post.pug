@@ -1,7 +1,8 @@
 extends layout.pug
 
 block content
-  h2=title
+  link(rel='stylesheet' href='/stylesheets/create-edit-post.css')
+  //- h2=title
   if errors
     div
       p The following error(s) occurred:
@@ -11,24 +12,42 @@ block content
 
   form(method="post" action=`/post/${post.id}/edit`)
         input(type="hidden" name="_csrf" value=csrfToken)
-        label(for="title") Title
-        input(type="text" name="title" id="title" value=post.title)
-        label(for="description") Description
-        input(type='text' name="description" id="description" value=post.description)
-        label(for="gallery") Gallery
-        input(type="text" name="gallery" id="gallery" value=post.gallery)
-        label(for="state") Location
-        select(name="state" id="state")
-            each state in states
-              if state.id === post.state_id   
-                option(value=state.id selected)= state.name
-              else  
-                option(value=state.id)= state.name
-        label(for="activity") Activity
-        select(name="activity" id="activity")
-            each activity in activities
-              if activity.id === post.activity_id
-                option(value=activity.id selected)=activity.name
-              else  
-                option(value=activity.id)=activity.name
-        input(type="submit" value="Create Post")
+        div.row
+          div.col-25
+            label(for="title") Title
+
+          div.col-75
+            input(type="text" placeholder="Title goes here.." name="title" id="title" value=post.title)
+        div.row
+          div.col-25
+            label(for="description") Description
+          div.col-75
+            textarea(placeholder="Write something.." name="description" id="description" value=post.description style="height:200px")
+        div.row
+          div.col-25
+            label(for="gallery") Photos URL
+          div.col-75
+            input(type="text" name="gallery" id="gallery" value=post.gallery)
+        div.row
+          div.col-25
+            label(for="state") Location
+          div.col-75
+            select(name="state" id="state")
+              each state in states
+                if state.id === post.state_id
+                  option(value=state.id selected)= state.name
+                else
+                  option(value=state.id)= state.name
+        div.row
+          div.col-25
+            label(for="activity") Activity
+          div.col-75
+            select(name="activity" id="activity")
+              each activity in activities
+                if activity.id === post.activity_id
+                  option(value=activity.id selected)=activity.name
+                else
+                  option(value=activity.id)=activity.name
+
+        div.row
+          input(type="submit" value="Create Post")
