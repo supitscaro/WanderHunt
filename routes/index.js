@@ -1,15 +1,8 @@
 var express = require('express');
 var router = express.Router();
-<<<<<<< HEAD
-const { asyncHandler } = require("./utils");
-const { Post, User, State, Activity, sequelize } = require('../db/models');
-// const findPosts = require('../public/javascripts/index')
-
-=======
 const { Post, User } = require('../db/models');
 const { asyncHandler } = require('./utils');
 const { getPosts } = require('../public/javascripts/index')
->>>>>>> main
 
 /* GET home page. */
 router.get('/', asyncHandler(async (req, res, next) => {
