@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const { csrfProtection, asyncHandler } = require("./utils");
 const { check, validationResult } = require('express-validator');
-const { Post, State, Activity } = require("../db/models");
+const { Post, State, Activity, User } = require("../db/models");
 const { requireAuth } = require('../auth.js');
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const postId = parseInt(req.params.id, 10);
-    const post = await Post.findByPk(postId);
+    const post = await Post.findByPk(postId, {include: [User, State, Activity]});
     // if (!post) {
     //     res.render('../');
     // }

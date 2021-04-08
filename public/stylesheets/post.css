@@ -1,0 +1,139 @@
+#title{
+    color:red,
+}
+
+.body-container{
+    width: 100%;
+    display: grid;
+    grid-template-rows: 150px 1fr;
+    grid-template-columns: 1fr 700px 300px 1fr;
+    grid-template-areas: 
+    '. top edit .'
+    '. left right .'
+}
+
+.leftColumn{
+    grid-area: left;
+    float: left;
+    margin-right: 50px
+}
+
+.rightColumn{
+    grid-area: right;
+    float: right;
+}
+
+.titleInfo{
+    grid-area: top
+}
+
+.editPost{
+    grid-area: edit;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-bottom: 15px;
+    padding-right: 15px;
+}
+
+.product{
+    background-color: white;
+    border-radius: 3px;
+    padding: 15px;
+    box-shadow:
+        0 2px 2px rgba(0, 0, 0, 0.034),
+        0 6px 5px rgba(0, 0, 0, 0.048),
+        0 12px 10px rgba(0, 0, 0, 0.06),
+        0 22px 17px rgba(0, 0, 0, 0.052);
+}
+
+.media{
+    height: 300px;
+    width: 400px;
+    padding: 15px;
+    text-align: center;
+}
+
+img{
+    width: inherit;
+    height: inherit;
+}
+
+.comments{
+    background-color: white;
+    height: 250px;
+    border-radius: 3px;
+    box-shadow:
+        0 2px 2px rgba(0, 0, 0, 0.034),
+        0 6px 5px rgba(0, 0, 0, 0.048),
+        0 12px 10px rgba(0, 0, 0, 0.06),
+        0 22px 17px rgba(0, 0, 0, 0.052);
+}
+
+.comments_input{
+    border-bottom: 1px solid lightgray;
+    padding: 15px;
+}
+
+.comments_body{
+    padding: 0px 15px 0px 15px;
+}
+
+.author{
+    background-color: white;
+    height: 125px;
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas: 
+    'title title'
+    'photo name';
+    box-shadow:
+        0 2px 2px rgba(0, 0, 0, 0.034),
+        0 6px 5px rgba(0, 0, 0, 0.048),
+        0 12px 10px rgba(0, 0, 0, 0.06),
+        0 22px 17px rgba(0, 0, 0, 0.052);
+}
+
+.author_photo{
+    grid-area: photo;
+    background-color: lime;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.author_name{
+    grid-area: name;
+    margin-left: 5px;
+}
+
+.author_title{
+    grid-area: title;
+    margin-left: 15px;
+}
+
+.related{
+    margin-top: 50px;
+    background-color: white;
+    height: 500px;
+    padding: 15px;
+    border-radius: 3px;
+    box-shadow:
+        0 2px 2px rgba(0, 0, 0, 0.034),
+        0 6px 5px rgba(0, 0, 0, 0.048),
+        0 12px 10px rgba(0, 0, 0, 0.06),
+        0 22px 17px rgba(0, 0, 0, 0.052);
+}
+
+.edit_button{
+    background-color: #D33F49;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    height: 30px;
+    width: 70px;
+    border-radius: 3px;
+}
