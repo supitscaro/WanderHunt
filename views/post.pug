@@ -1,3 +1,37 @@
-extends layout.pug
+extends layout
+append head 
+    link(rel='stylesheet' href='/stylesheets/post.css')
+    script(src="/javascripts/post.js" type="module" defer)
 block content 
-    h2 Here is our Individual Post Page
+    div.body-container 
+        div.titleInfo
+            h1.title= post.title
+            h3.activity= post.Activity.name
+        div.editPost    
+            if post.user_id === locals.user.id 
+                button.edit_button(type='button' value='edit' id=`edit_button_${post.id}`) Edit Post
+        div.leftColumn 
+            div.product
+                div.location    
+                    h3 Located in #{post.State.name}
+                div.media
+                    each image in post.gallery
+                        img(src=image)  
+                div.description
+                    h3 Description
+                    p=post.description
+            h3.comments_title Comments
+            div.comments
+                div.comments_input
+                    input(type='text' name='comment' id='comment' placeholder='What do you think of this?')  
+                    button(type='submit' value='submit') Send
+                div.comments_body
+                    p Lot's of comments here
+        div.rightColumn 
+            div.author
+                h2.author_title Author
+                div.author_photo(id=`author_${post.User.id}` name='author_photo') 
+                h3.author_name= post.User.username
+            div.related
+                h2.related_title Related Activities
+                p Some fun related activities
