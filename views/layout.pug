@@ -14,7 +14,10 @@ html
             div.navbar_postBtn
               button.navbar_postBtn_post(onClick="location.href= '/post/create'") Post
             div.navbar_profileImage
-              img.navbar_profileImage_pfp(src=`${locals.user.profilePhoto}`, alt="")
+              if locals.user.profilePhoto === null
+                img.navbar_profileImage_pfp(src="/images/dummylogo.png", alt="")
+              else
+                img.navbar_profileImage_pfp(src=`${locals.user.profilePhoto}`, alt="")
           else
             div.navbar_btn
               button.navbar_btn_login(onclick="location.href= '/users/log-in'") Log In
