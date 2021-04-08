@@ -24,9 +24,11 @@ block content
           h2 Recent Posts
         .card
           div#recent
-            p Before Panama was open to land tours, my father and I took a cruise through the Panama Canal. As an engineer, he was fascinated by its construction. He read and urged me to read The Path Between the Seas: The Creation of the Panama Canal, 1870-1914 . Without this historical guide, looking at the water and buildings would have had little meaning. The Canal passage takes only one day; we agreed to spend some time in San Juan , Puerto Rico to extend our holiday.
-            p Before Panama was open to land tours, my father and I took a cruise through the Panama Canal. As an engineer, he was fascinated by its construction. He read and urged me to read The Path Between the Seas: The Creation of the Panama Canal, 1870-1914 . Without this historical guide, looking at the water and buildings would have had little meaning. The Canal passage takes only one day; we agreed to spend some time in San Juan , Puerto Rico to extend our holiday.
-            p Before Panama was open to land tours, my father and I took a cruise through the Panama Canal. As an engineer, he was fascinated by its construction. He read and urged me to read The Path Between the Seas: The Creation of the Panama Canal, 1870-1914 . Without this historical guide, looking at the water and buildings would have had little meaning. The Canal passage takes only one day; we agreed to spend some time in San Juan , Puerto Rico to extend our holiday.
+            each post in posts
+              div.recent_post
+                img.post_img(src=post.gallery)
+                h2.post_title= post.title
+                h4.post_author= post.User.username
       div.right-column
         div.title
           h2 Popular Activities
