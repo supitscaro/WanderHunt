@@ -82,7 +82,7 @@ async function createPosts(num) {
 }
 
 
-createPosts(30);
+createPosts(1);
 
 module.exports = {
     createUsers,
