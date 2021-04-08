@@ -1,12 +1,13 @@
-// const {Post, User, State, Activity, Comment} = require('.../db/models');
-// window.addEventListener("load", (event)=>{
-//     async function getPosts(){
-//         let posts = await Post.findAll({include: {User, State, Activity}});
-//         posts.forEach(post => {
-//             console.log(post.title);
-//         })
-//     }
+window.addEventListener("load", (event)=>{
+    
+    // async function getPosts(){
+    //     let result = await fetch('localhost:8080/')
+    //     let posts = result.json();
+    //     if (posts){
+    //         console.log(posts[1].title)
+    //     }
+    // }
+    // getPosts();
+})
 
-
-
-// })
+// module.exports = getPosts;
