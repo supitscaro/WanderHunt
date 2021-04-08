@@ -9,17 +9,23 @@ block content
         div.profile_header
             img.profile_header_img(src="", alt="")
             div.profile_image
-                img.profile_image_pfp(src="/images/dummylogo.png", alt="")
+                img.profile_image_pfp(src=user.profilePhoto, alt="")
             div.profile_header_name
                 h2(value=user.username)= user.username
-                button.header_btn_settings(onClick="") EDIT MY PROFILE
+                if user.id === users_id
+                    button.header_btn_settings(type='button' onClick=`location.href= "/user/${user.id}/settings"`) EDIT MY PROFILE
+                else
+                    button.header_btn_settings(type='button' onClick="") FOLLOW
         div.comment_title Comments
     div.profile_content
         div.left_column
             div.left_column_content
-                p Before Panama was open to land tours, my father and I took a cruise through the Panama Canal. As an engineer, he was fascinated by its construction. He read and urged me to read The Path Between the Seas: The Creation of the Panama Canal, 1870-1914 . Without this historical guide, looking at the water and buildings would have had little meaning. The Canal passage takes only one day; we agreed to spend some time in San Juan , Puerto Rico to extend our holiday.
-                p Before Panama was open to land tours, my father and I took a cruise through the Panama Canal. As an engineer, he was fascinated by its construction. He read and urged me to read The Path Between the Seas: The Creation of the Panama Canal, 1870-1914 . Without this historical guide, looking at the water and buildings would have had little meaning. The Canal passage takes only one day; we agreed to spend some time in San Juan , Puerto Rico to extend our holiday.
-                p Before Panama was open to land tours, my father and I took a cruise through the Panama Canal. As an engineer, he was fascinated by its construction. He read and urged me to read The Path Between the Seas: The Creation of the Panama Canal, 1870-1914 . Without this historical guide, looking at the water and buildings would have had little meaning. The Canal passage takes only one day; we agreed to spend some time in San Juan , Puerto Rico to extend our holiday.
+               each comment in comments
+                div.recent_comment
+                    img.post_img(src=comment.Post.gallery)
+                    div.post_info
+                        p.post_title= comment.Post.title
+                        p.post_author= comment.User.username
         div.right_column
             div.right_column_content
                 p Before Panama was open to land tours, my father and I took a cruise through the Panama Canal. As an engineer, he was fascinated by its construction. He read and urged me to read The Path Between the Seas: The Creation of the Panama Canal, 1870-1914 . Without this historical guide, looking at the water and buildings would have had little meaning. The Canal passage takes only one day; we agreed to spend some time in San Juan , Puerto Rico to extend our holiday.

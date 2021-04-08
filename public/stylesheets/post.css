@@ -104,6 +104,10 @@ img{
     margin-top: 5px;
 }
 
+.author_photo_img{
+    border-radius: 50%;
+}
+
 .author_name{
     grid-area: name;
     margin-left: 5px;
