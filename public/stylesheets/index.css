@@ -12,6 +12,9 @@ h1 {
     background-color: #F5F5F5;
     padding-left: 20px;
     padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 69.8%;
 }
 .left-column{
     float: left;
