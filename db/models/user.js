@@ -14,12 +14,13 @@ module.exports = (sequelize, DataTypes) => {
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false
-    }
+    },
+    profilePhoto: DataTypes.STRING
   }, {});
-  User.associate = function (models) {
+  User.associate = function(models) {
+    // associations can be defined here
     User.hasMany(models.Post, { foreignKey: 'user_id' })
     User.hasMany(models.Comment, { foreignKey: 'user_id' })
-    // associations can be defined here
   };
   return User;
 };
