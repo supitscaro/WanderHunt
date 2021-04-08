@@ -66,8 +66,8 @@ router.post('/', requireAuth, commentValidators, asyncHandler(async (req, res, n
         let comment = await Comment.create({user_id, post_id, content});
         res.json({comment});
     } else{
-        let errors = validationErrors.array().map((e) => e.msg) 
-        res.json({errors});   
+        let errors = validationErrors.array().map((e) => e.msg)
+        res.json({errors});
     }
 }))
 
