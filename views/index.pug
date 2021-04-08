@@ -27,8 +27,9 @@ block content
             each post in posts
               div.recent_post
                 img.post_img(src=post.gallery)
-                h2.post_title= post.title
-                h4.post_author= post.User.username
+                div.author_title
+                  p.post_title= post.title
+                  p.post_author= post.User.username
       div.right-column
         div.title
           h2 Popular Activities
