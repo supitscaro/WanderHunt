@@ -10,13 +10,14 @@ block content
         div.editPost    
             if post.user_id === locals.user.id 
                 button.edit_button(type='button' value='edit' id=`edit_button_${post.id}`) Edit Post
+            else 
+                button.edit_button(type='button' style='display:none' value='edit' id=`edit_button_${post.id}`) Edit Post
         div.leftColumn 
             div.product
                 div.location    
                     h3 Located in #{post.State.name}
                 div.media
-                    each image in post.gallery
-                        img(src=image)  
+                    img(src=post.gallery)  
                 div.description
                     h3 Description
                     p=post.description
@@ -30,7 +31,8 @@ block content
         div.rightColumn 
             div.author
                 h2.author_title Author
-                div.author_photo(id=`author_${post.User.id}` name='author_photo') 
+                div.author_photo(name='author_photo')
+                    img(src=post.User.profilePhoto id=`author_${post.User.id}`) 
                 h3.author_name= post.User.username
             div.related
                 h2.related_title Related Activities

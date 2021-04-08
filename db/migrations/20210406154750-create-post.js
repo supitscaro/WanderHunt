@@ -1,7 +1,4 @@
 'use strict';
-
-const { sequelize } = require("../models");
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Posts', {
@@ -20,23 +17,22 @@ module.exports = {
         allowNull: false
       },
       gallery: {
-        type: Sequelize.ARRAY(Sequelize.TEXT),
-        allowNull: false
+        type: Sequelize.STRING
       },
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {model: "Users"}
       },
-      activity_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {model: "Activities"}
-      },
       state_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {model: "States"}
+      },
+      activity_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {model: "Activities"}
       },
       createdAt: {
         allowNull: false,
@@ -52,5 +48,3 @@ module.exports = {
     return queryInterface.dropTable('Posts');
   }
 };
-
-// 20210406154814-create-comment   20210406154753-create-post
