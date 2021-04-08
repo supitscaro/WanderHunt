@@ -39,11 +39,12 @@ let postValidators = [
         .withMessage('Please provide an activity type'),
 ]
 
-router.post('/create', 
-    csrfProtection, 
+router.post('/create',
+    csrfProtection,
     requireAuth,
-    postValidators, 
+    postValidators,
     asyncHandler(async (req, res, next) => {
+        console.log(req.body);
         const { title, description, gallery, state, activity } = req.body;
         let galleryArray = gallery.split(', ');
         let user_id = res.locals.user.id;
@@ -52,7 +53,7 @@ router.post('/create',
         const post = Post.build({title, description, gallery: galleryArray, user_id, state_id: stateNum, activity_id: activityNum});
         const validationErrors = validationResult(req);
         let errors = [];
-        
+
         if (validationErrors.isEmpty()){
             await post.save();
             let newPost = await Post.findOne({where : {title: title, description: description}});
@@ -61,6 +62,7 @@ router.post('/create',
             validationErrors.array().map((e) => errors.push(e.msg));
             let activities = await Activity.findAll();
             let states = await State.findAll();
+            console.log("hello");
             res.render('create-post', {
                 title: 'Create New Post',
                 post,
@@ -85,9 +87,9 @@ router.get('/:id(\\d+)/edit', csrfProtection, requireAuth, asyncHandler(async(re
     }
 }));
 
-router.post('/:id(\\d+)/edit', csrfProtection, 
-    postValidators, 
-    requireAuth, 
+router.post('/:id(\\d+)/edit', csrfProtection,
+    postValidators,
+    requireAuth,
     asyncHandler(async(req,res)=>{
         const { title, description, gallery, state, activity } = req.body;
         let galleryArray = gallery.split(', ');
@@ -96,10 +98,10 @@ router.post('/:id(\\d+)/edit', csrfProtection,
         let activityNum = parseInt(activity, 10);
         let stateNum = parseInt(state, 10);
         let post = {title, description, gallery: galleryArray, state_id: stateNum, activity_id: activityNum}
-        
+
         const validationErrors = validationResult(req);
         let errors = [];
-        
+
         if (validationErrors.isEmpty()){
             await postToUpdate.update(post);
             res.redirect(`/post/${post_id}`);
