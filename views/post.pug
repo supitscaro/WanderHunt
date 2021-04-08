@@ -8,10 +8,10 @@ block content
             h1.title= post.title
             h3.activity= post.Activity.name
         div.editPost    
-            if post.user_id === locals.user.id 
-                button.edit_button(type='button' value='edit' id=`edit_button_${post.id}`) Edit Post
-            else 
+            if !locals.authenticated || post.user_id !== locals.user.id 
                 button.edit_button(type='button' style='display:none' value='edit' id=`edit_button_${post.id}`) Edit Post
+            else 
+                button.edit_button(type='button' value='edit' id=`edit_button_${post.id}`) Edit Post
         div.leftColumn 
             div.product
                 div.location    
@@ -32,7 +32,7 @@ block content
             div.author
                 h2.author_title Author
                 div.author_photo(name='author_photo')
-                    img(src=post.User.profilePhoto id=`author_${post.User.id}`) 
+                    img.author_photo_img(src=post.User.profilePhoto id=`author_${post.User.id}`) 
                 h3.author_name= post.User.username
             div.related
                 h2.related_title Related Activities

@@ -30,9 +30,9 @@ router.get('/post/:id(\\d+)', asyncHandler(async (req, res, next) => {
 router.get('/user/:id(\\d+)', asyncHandler(async (req, res, next) => {
     let user_id = parseInt(req.params.id, 10);
     let comments = await Comment.findAll({
+        include: { model: Post },
         where: {
             user_id,
-            include: { Post }
         }
     });
     if (comments === null) {
@@ -62,18 +62,20 @@ let commentValidators = [
 router.post('/', requireAuth, commentValidators, asyncHandler(async (req, res, next) => {
     const { user_id, post_id, content } = req.body;
     let validationErrors = validationResult(req);
-    if (validationErrors.isEmpty()) {
-        await Comment.create({ user_id, post_id, content });
-        res.end();
-    } else {
-        let errors = validationErrors.array().map((e) => e.msg)
-        res.json({ errors });
+    if (validationErrors.isEmpty()){
+        let comment = await Comment.create({user_id, post_id, content});
+        res.json({comment});
+    } else{
+        let errors = validationErrors.array().map((e) => e.msg) 
+        res.json({errors});   
     }
 }))
 
 // put
+
 router.put('/:id(\\d+)', requireAuth, commentValidators, asyncHandler(async (req, res, next) => {
     const { user_id, post_id, content } = req.body;
+
     let id = parseInt(req.params.id, 10);
     let commentToUpdate = await Comment.findByPk(id);
     let validationErrors = validationResult(req);
