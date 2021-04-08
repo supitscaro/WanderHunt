@@ -6,6 +6,7 @@ html
         link(rel='stylesheet' href='/stylesheets/layout.css')
   body
     div.navbar
+      div.nav_content
         div.navbar_left
           img.navbar_logo(src="/images/Logo2.png", alt="" onclick="location.href= '/'")
           input.navbar_search(type="search" placeholder="Discover your next favorite thing...")
@@ -14,7 +15,10 @@ html
             div.navbar_postBtn
               button.navbar_postBtn_post(onClick="location.href= '/post/create'") Post
             div.navbar_profileImage
-              img.navbar_profileImage_pfp(src="/images/dummylogo.png", alt="")
+              if locals.user.profilePhoto === null
+                img.navbar_profileImage_pfp(src="/images/dummylogo.png", alt="")
+              else
+                img.navbar_profileImage_pfp(src=`${locals.user.profilePhoto}`, alt="")
           else
             div.navbar_btn
               button.navbar_btn_login(onclick="location.href= '/users/log-in'") Log In

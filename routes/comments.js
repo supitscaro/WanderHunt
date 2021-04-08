@@ -30,9 +30,9 @@ router.get('/post/:id(\\d+)', asyncHandler(async (req, res, next) => {
 router.get('/user/:id(\\d+)', asyncHandler(async (req, res, next) => {
     let user_id = parseInt(req.params.id, 10);
     let comments = await Comment.findAll({
+        include: { model: Post },
         where: {
             user_id,
-            include: { Post }
         }
     });
     if (comments === null) {
@@ -46,9 +46,9 @@ router.get('/user/:id(\\d+)', asyncHandler(async (req, res, next) => {
 router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
     let id = parseInt(req.params.id, 10);
     let comment = await Comment.findByPk(id);
-    if (!comment){
+    if (!comment) {
         next(commentsNotFound());
-    }else{
+    } else {
         await comment.destroy();
         res.status(204).end();
     }
@@ -60,11 +60,11 @@ let commentValidators = [
         .withMessage('Please provide a comment')]
 // post
 router.post('/', requireAuth, commentValidators, asyncHandler(async (req, res, next) => {
-    const {user_id, post_id, content} = req.body;
+    const { user_id, post_id, content } = req.body;
     let validationErrors = validationResult(req);
     if (validationErrors.isEmpty()){
-        await Comment.create({user_id, post_id, content});
-        res.end();
+        let comment = await Comment.create({user_id, post_id, content});
+        res.json({comment});
     } else{
         let errors = validationErrors.array().map((e) => e.msg)
         res.json({errors});
@@ -72,18 +72,20 @@ router.post('/', requireAuth, commentValidators, asyncHandler(async (req, res, n
 }))
 
 // put
-router.put('/:id(\\d+)', requireAuth, commentValidators, asyncHandler(async (req, res, next)=>{
-    const {user_id, post_id, content} = req.body;
+
+router.put('/:id(\\d+)', requireAuth, commentValidators, asyncHandler(async (req, res, next) => {
+    const { user_id, post_id, content } = req.body;
+
     let id = parseInt(req.params.id, 10);
     let commentToUpdate = await Comment.findByPk(id);
     let validationErrors = validationResult(req);
-    let comment = {content};
-    if (validationErrors.isEmpty()){
+    let comment = { content };
+    if (validationErrors.isEmpty()) {
         await commentToUpdate.update(comment);
-        res.json({commentToUpdate});
-    } else{
+        res.json({ commentToUpdate });
+    } else {
         let errors = validationErrors.array().map((e) => e.msg)
-        res.json({errors});
+        res.json({ errors });
     }
 }))
 
