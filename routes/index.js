@@ -5,17 +5,11 @@ const { asyncHandler } = require('./utils');
 
 /* GET home page. */
 router.get('/', asyncHandler(async (req, res, next) => {
-  // findPosts();
   const comments = await Comment.findAll({ order: ['post_id'] });
   let popular = mostPopular(comments);
-  let popularPosts = getPosts(popular);
-
-// console.log(popPosts)
-// let recent = mostRecent(posts);
-// let activity = topActivities(posts);
-// let states = topStates(posts);
-// console.log(posts);
-res.render('index', { title: 'Wanderhunt' });
+  let popularPosts = await getPosts(popular);
+  let recentPosts = await getRecent();
+  res.render('index', { title: 'Wanderhunt', popularPosts: popularPosts, recentPosts: recentPosts });
 }));
 
 
@@ -57,19 +51,21 @@ function mostPopular(comments) {
 
   return popularPosts;
 }
-async function getPosts(popular){
+
+async function getPosts(popular) {
   popularPosts = []
 
   while (popular.length) {
-    let post = await Post.findOne({ where: { id: `${popular[0]}` } })
+    let post = await Post.findOne({ where: { id: `${popular[0]}` }, include: [User] })
     popularPosts.push(post);
     popular.shift();
   }
-  console.log(popularPosts);
+  return popularPosts;
 }
 
-function mostRecent(posts) {
-
+async function getRecent() {
+  const recent = await Post.findAll({ order: ['createdAt'], limit: 10, include: User });
+  return recent;
 }
 function topActivitiess(posts) {
 
