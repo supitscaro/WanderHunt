@@ -24,10 +24,15 @@ block content
             h3.comments_title Comments
             div.comments
                 div.comments_input
-                    input(type='text' name='comment' id='comment' placeholder='What do you think of this?')  
-                    button(type='submit' value='submit') Send
+                    input(type='text' name='newComment' id='newComment' placeholder='What do you think of this?')  
+                    button(type='submit' value='submit' id='submitComment') Send
                 div.comments_body
-                    p Lot's of comments here
+                    each comment in commentsArray 
+                        div.comment 
+                            div.commentTop
+                                img.commentProfilePhoto(src=`${comment.User.profilePhoto}` id=`commentUser_${comment.user_id}`)
+                                h4.commentProfileName=comment.User.username 
+                            p.commentContent=comment.content
         div.rightColumn 
             div.author
                 h2.author_title Author

@@ -61,7 +61,6 @@ img{
 
 .comments{
     background-color: white;
-    height: 250px;
     border-radius: 3px;
     box-shadow:
         0 2px 2px rgba(0, 0, 0, 0.034),
@@ -75,8 +74,33 @@ img{
     padding: 15px;
 }
 
-.comments_body{
-    padding: 0px 15px 0px 15px;
+.comment{
+    display: grid;
+    grid-template-rows: 20px, 1fr;
+    grid-template-areas: 
+    "commentTop"
+    "commentContent";
+    border-bottom: solid 1px lightgray;
+    padding: 15px;
+}
+
+.commentProfilePhoto{
+    grid-area: commentPhoto;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.commentTop{
+    grid-area: commentTop;
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+}
+
+.commentProfileName{
+    padding-left: 15px;
+
 }
 
 .author{

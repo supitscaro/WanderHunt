@@ -16,6 +16,7 @@ const commentsNotFound = () => {
 router.get('/post/:id(\\d+)', asyncHandler(async (req, res, next) => {
     let post_id = parseInt(req.params.id, 10);
     let comments = await Comment.findAll({
+        include: { model: User },
         where: {
             post_id
         }
