@@ -29,13 +29,13 @@
 - [ ]  API for DELETE /comments/:id
 - [ ]  API for POST /comments/:id
 - [ ]  API for PUT /comments/:id
-- [ ]  Posts Pug and CSS
+- [x]  Posts Pug and CSS
     - [ ]  Comments Pug? and CSS
     - [ ]  Need to figure out how to show pictures user uploads
     - [ ]  make comment input available if user is logged in
     - [ ]  add button to let user edit their comment
     - [ ]  allow post creator to edit their post
-- [ ] Create Post Pug and CSS
+- [x] Create Post Pug and CSS
     - [ ] should be pretty similar, if not exactly the same, as the edit post so it should be pretty easy to finish the edit post page on friday
 
 ### Friday
