@@ -10,7 +10,10 @@ append head
 
 block content
   h1= title
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
   div.body-container
     div.row
       div.left-column
@@ -30,8 +33,14 @@ block content
             each post in posts
               div.recent_post
                 img.post_img(src=post.gallery)
+<<<<<<< HEAD
                 h2.post_title= post.title
                 h4.post_author= post.User.username
+=======
+                div.author_title
+                  p.post_title= post.title
+                  p.post_author= post.User.username
+>>>>>>> main
       div.right-column
         div.title
           h2 Popular Activities

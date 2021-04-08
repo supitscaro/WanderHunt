@@ -1,7 +1,4 @@
 'use strict';
-
-const { sequelize } = require("../models");
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Posts', {
@@ -20,23 +17,35 @@ module.exports = {
         allowNull: false
       },
       gallery: {
+<<<<<<< HEAD:db/migrations/20210406154753-create-post.js
         type: Sequelize.TEXT,
         allowNull: false
+=======
+        type: Sequelize.STRING
+>>>>>>> main:db/migrations/20210406154750-create-post.js
       },
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: "Users" }
       },
-      activity_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: "Activities" }
-      },
       state_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+<<<<<<< HEAD:db/migrations/20210406154753-create-post.js
+        references: { model: "Activities" }
+=======
+        references: {model: "States"}
+>>>>>>> main:db/migrations/20210406154750-create-post.js
+      },
+      activity_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+<<<<<<< HEAD:db/migrations/20210406154753-create-post.js
         references: { model: "States" }
+=======
+        references: {model: "Activities"}
+>>>>>>> main:db/migrations/20210406154750-create-post.js
       },
       createdAt: {
         allowNull: false,
@@ -52,5 +61,3 @@ module.exports = {
     return queryInterface.dropTable('Posts');
   }
 };
-
-// 20210406154814-create-comment   20210406154753-create-post
