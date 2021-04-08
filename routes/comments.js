@@ -4,6 +4,7 @@ const { csrfProtection, asyncHandler } = require("./utils");
 const { check, validationResult } = require('express-validator');
 const { Post, State, Activity, User, Comment } = require("../db/models");
 const { requireAuth } = require('../auth.js');
+const { ValidationError } = require('sequelize/types');
 
 const commentsNotFound = () => {
     let error = new Error('Could not find comments');
@@ -60,11 +61,30 @@ let commentValidators = [
 // post
 router.post('/', requireAuth, commentValidators, asyncHandler(async (req, res, next) => {
     const {user_id, post_id, content} = req.body;
-    await Comment.create({user_id, post_id, content});
-    res.end();
+    let validationErrors = validationResult(req);
+    if (validationErrors.isEmpty()){
+        await Comment.create({user_id, post_id, content});
+        res.end();
+    } else{
+        let errors = validationErrors.array().map((e) => e.msg) 
+        res.json({errors});   
+    }
 }))
 
 // put
-
+router.put('/:id(\\d+)', requireAuth, commentValidators, asyncHandler(async (req, res, next)=>{
+    const {user_id, post_id, content} = req.body;
+    let id = parseInt(req.params.id, 10);
+    let commentToUpdate = await Comment.findByPk(id);
+    let validationErrors = validationResult(req);
+    let comment = {content};
+    if (validationErrors.isEmpty()){
+        await commentToUpdate.update(comment);
+        res.json({commentToUpdate});
+    } else{
+        let errors = validationErrors.array().map((e) => e.msg) 
+        res.json({errors});   
+    }
+}))
 
 module.exports = router;
