@@ -8,64 +8,65 @@ router.get('/', asyncHandler(async (req, res, next) => {
   // findPosts();
   const comments = await Comment.findAll({ order: ['post_id'] });
   let popular = mostPopular(comments);
-  // let recent = mostRecent(posts);
-  // let activity = topActivities(posts);
-  // let states = topStates(posts);
-  // console.log(posts);
-  res.render('index', { title: 'Wanderhunt' });
+  let popularPosts = getPosts(popular);
+
+// console.log(popPosts)
+// let recent = mostRecent(posts);
+// let activity = topActivities(posts);
+// let states = topStates(posts);
+// console.log(posts);
+res.render('index', { title: 'Wanderhunt' });
 }));
 
 
 
 function mostPopular(comments) {
-  let commentPosts = comments.forEach(comment => {
-    console.log(comment.post_id)
-  })
+
   let popularPosts = []
-  let popularIndex;
-  let challengeIndex;
   let currentPostId;
   let challengePostId;
-  let currentCount = 0;
-  let challengeCount = 0;
   let tracker = {}
 
   for (let i = 0; i < comments.length && popularPosts.length < 5; i++) {
-    if (!tracker[comments[i].post_id]){
-      tracker[comments[i].post_id] = []
+    if (!tracker[comments[i].post_id]) {
+      tracker[comments[i].post_id] = [1]
     }
-    if (!currentPostId){
+    if (!currentPostId) {
       currentPostId = comments[i].post_id;
-      popularIndex = ;
     }
     if (currentPostId === comments[i].post_id) {
-      currentCount++;
+      tracker[comments[i].post_id]++;
     } else {
-      challengeUser = comments[i].post_id
-      challengeCount++;
-      challengeIndex = i
+      challengePostId = comments[i].post_id
+      tracker[comments[i].post_id]++;
     }
-    if (challengePostId === comments[i].post_id){
-        challengeCount++;
+    if (challengePostId === comments[i].post_id) {
+      tracker[comments[i].post_id]++;
     }
-    if (challengeCount > currentCount && !tracker[comments[challengeIndex].post_id]) {
-      currentCount = challengeCount
+    if (tracker[challengePostId] > tracker[currentPostId] && !popularPosts.includes(tracker[challengePostId])) {
       currentPostId = challengePostId
-      popularIndex = challengeIndex
+      challengePostId = null;
     }
     if (i === comments.length - 1) {
 
-      let pop = comments[popularIndex].post_id
-      comments.splice(popularIndex, 1)
-      tracker[pop] = currentCount;
-      popularPosts.push(pop);
+      popularPosts.push(currentPostId);
+      tracker[currentPostId] = 0
       i = 0
     }
   }
 
+  return popularPosts;
+}
+async function getPosts(popular){
+  popularPosts = []
+
+  while (popular.length) {
+    let post = await Post.findOne({ where: { id: `${popular[0]}` } })
+    popularPosts.push(post);
+    popular.shift();
+  }
   console.log(popularPosts);
 }
-
 
 function mostRecent(posts) {
 
