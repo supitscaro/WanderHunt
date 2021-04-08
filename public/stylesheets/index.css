@@ -1,5 +1,6 @@
 h1 {
     color: #555555;
+    padding-left: 20px;
 }
 
 .topnav {
@@ -9,6 +10,8 @@ h1 {
 
 .body-container {
     background-color: #F5F5F5;
+    padding-left: 20px;
+    padding-right: 20px;
 }
     /* float: left;
     display: grid;
@@ -34,10 +37,14 @@ h1 {
     width: 33.34%
 }
 .card{
-    background-color: #e5e5e5;
+    background-color: white;
     padding: 20px;
     margin-top: 20px;
-    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+    box-shadow:
+    0 2px 2px rgba(0, 0, 0, 0.034),
+    0 6px 5px rgba(0, 0, 0, 0.048),
+    0 12px 10px rgba(0, 0, 0, 0.06),
+    0 22px 17px rgba(0, 0, 0, 0.052);
     border-radius: 3px;
 }
 .row{
