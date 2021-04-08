@@ -17,12 +17,7 @@ module.exports = {
         allowNull: false
       },
       gallery: {
-<<<<<<< HEAD:db/migrations/20210406154753-create-post.js
-        type: Sequelize.TEXT,
-        allowNull: false
-=======
         type: Sequelize.STRING
->>>>>>> main:db/migrations/20210406154750-create-post.js
       },
       user_id: {
         type: Sequelize.INTEGER,
@@ -32,20 +27,12 @@ module.exports = {
       state_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-<<<<<<< HEAD:db/migrations/20210406154753-create-post.js
-        references: { model: "Activities" }
-=======
         references: {model: "States"}
->>>>>>> main:db/migrations/20210406154750-create-post.js
       },
       activity_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-<<<<<<< HEAD:db/migrations/20210406154753-create-post.js
-        references: { model: "States" }
-=======
         references: {model: "Activities"}
->>>>>>> main:db/migrations/20210406154750-create-post.js
       },
       createdAt: {
         allowNull: false,
