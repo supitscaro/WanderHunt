@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { csrfProtection, asyncHandler } = require("./utils");
-const { User } = require("../db/models");
+const { User, Comment, Post } = require("../db/models");
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const { loginUser, restoreUser, requireAuth } = require('../auth.js');
@@ -124,8 +124,13 @@ router.post('/log-in', csrfProtection, loginValidators,
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   let userId = parseInt(req.params.id, 10);
   let user = await User.findByPk(userId);
+  let users_id = res.locals.user.id;
+  const comments = await Comment.findAll({
+    limit: 10,
+    include: [{ model: User }, { model: Post }],
+  });
 
-  res.render('profile-page', { user });
+  res.render('profile-page', { user, users_id, comments });
 }));
 
 router.get('/:id(\\d+)/settings', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
