@@ -42,8 +42,27 @@ router.get('/user/:id(\\d+)', asyncHandler(async (req, res, next) => {
 }));
 
 // delete
+router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
+    let id = parseInt(req.params.id, 10);
+    let comment = await Comment.findByPk(id);
+    if (!comment){
+        next(commentsNotFound());
+    }else{
+        await comment.destroy();
+        res.status(204).end();
+    }
 
+}))
+let commentValidators = [
+    check('content')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a comment')]
 // post
+router.post('/', requireAuth, commentValidators, asyncHandler(async (req, res, next) => {
+    const {user_id, post_id, content} = req.body;
+    await Comment.create({user_id, post_id, content});
+    res.end();
+}))
 
 // put
 
