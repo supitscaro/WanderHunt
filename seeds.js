@@ -31,7 +31,7 @@ async function createPosts(num) {
     let titles = await getTitles(num)
     let descriptions = await getDescriptions(num)
 
-    postBases.forEach((post, i)=>{
+    postBases.forEach((post, i) => {
         post.title = titles[i];
         post.description = descriptions[i];
     })
@@ -80,9 +80,39 @@ async function createPosts(num) {
         return descriptions
     }
 }
-
-
-createPosts(1);
+async function createComments(num) {
+    let contents = await getComments(num);
+    let comments = [];
+    contents.forEach(content => {
+        let userId = Math.floor(Math.random() * (50 - 1) + 1);
+        let postId = Math.floor(Math.random() * (31 - 1) + 1);
+        let comment = {
+            content: content,
+            user_id: userId,
+            post_id: postId
+        }
+        comments.push(comment);
+    })
+    console.log(comments);
+    async function getComments(num) {
+        let comments = []
+        let index = 1;
+        while (index <= num) {
+            const comment = await fetch(`https://hipsum.co/api/?type=hipster-centric&sentences${Math.floor(Math.random() * (4 - 1) + 1)}&paras=${Math.floor(Math.random() * (3 - 1) + 1)}`)
+            let commentArray = await comment.json();
+            if (commentArray) {
+                if (commentArray.length > 1) {
+                    comments.push(commentArray.join("\n"));
+                } else {
+                    comments.push(...commentArray)
+                }
+                index++;
+            }
+        }
+        return comments;
+    }
+}
+createComments(50);
 
 module.exports = {
     createUsers,
