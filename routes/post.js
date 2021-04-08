@@ -45,11 +45,10 @@ router.post('/create',
     postValidators, 
     asyncHandler(async (req, res, next) => {
         const { title, description, gallery, state, activity } = req.body;
-        let galleryArray = gallery.split(', ');
         let user_id = res.locals.user.id;
         let activityNum = parseInt(activity, 10);
         let stateNum = parseInt(state, 10);
-        const post = Post.build({title, description, gallery: galleryArray, user_id, state_id: stateNum, activity_id: activityNum});
+        const post = Post.build({title, description, gallery, user_id, state_id: stateNum, activity_id: activityNum});
         const validationErrors = validationResult(req);
         let errors = [];
         

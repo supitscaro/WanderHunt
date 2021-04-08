@@ -5,7 +5,6 @@ window.addEventListener('DOMContentLoaded', ()=> {
         let userId = targetId.slice(7);
         window.location.href = `/users/${userId}`;
     })
-
     let editButton = document.querySelector('.edit_button');
     editButton.addEventListener('click', (e) => {
         let targetId = e.target.id;
