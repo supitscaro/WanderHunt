@@ -45,7 +45,7 @@ block content
         .card
           div#state
             each post in statePosts
-              div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
+              div.recent_state(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
                 img.post_img(src=post.gallery)
                 div.author_title
                   p.post_state= post.State.name

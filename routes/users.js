@@ -136,11 +136,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   });
   let joinedOn = user.createdAt.toString().split(' ');
   let date = joinedOn.slice(1, 4).join(' ');
-  // let date;
-  // for (let i = 0; i < 4; i++) {
-  //   let char = joinedOn[i];
-  //   date += await char;
-  // }
 
   res.render('profile-page', { user, users_id, comments, date });
 }));

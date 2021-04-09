@@ -65,6 +65,13 @@ footer{
     padding-top: 10px;
     width: 50%;
 }
+.recent_state {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-top: 10px;
+    width: 100%;
+}
 .popular_group > .recent_post {
     max-height: 100px;
 }
@@ -79,6 +86,9 @@ footer{
     width: 100%;
 }
 .recent_post:hover {
+    background-color: #FAFAFA;
+}
+.recent_state:hover {
     background-color: #FAFAFA;
 }
 .author_title {
