@@ -4,17 +4,37 @@
 body {
   margin: 0;
 }
-  /* input[type=text], select, textarea {
-    width: 92%;
-    /* padding: 12px; */
-    /* border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  } */
 
   label {
     padding: 12px 12px 12px 0;
     display: inline-block;
+  }
+
+  .title {
+    margin-left: 100px;
+    padding-top: 20px;
+  }
+
+  .input {
+    border-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    height: 35px;
+    width: 280px;
+    padding-right: 20px;
+  }
+
+  .row {
+    width: 80%;
+  }
+
+  .label {
+    padding-left: 20px;
+    padding-right: -50px;
+  }
+
+  .button {
+    margin-left: 20px;
+    margin-bottom: 20px;
   }
 
   input[type=submit] {
@@ -34,13 +54,16 @@ body {
 
   .container {
     border-radius: 5px;
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
+    background-color: white;
     margin-left:500px;
     margin-top:100px;
-
-    /* padding-right: 20px;
-    padding-left:200px;
-    height: 400px; */
+    width: 40%;
+    box-shadow:
+    0 2px 2px rgba(0, 0, 0, 0.034),
+    0 6px 5px rgba(0, 0, 0, 0.048),
+    0 12px 10px rgba(0, 0, 0, 0.06),
+    0 22px 17px rgba(0, 0, 0, 0.052);
   }
 
   .col-25 {
@@ -51,7 +74,7 @@ body {
   }
 
   .col-75 {
-    float: left;
+    float: right;
     width: 30%;
     margin-top: 23px;
   }
