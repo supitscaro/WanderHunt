@@ -104,6 +104,26 @@ footer{
     padding-left: 20px;
     font-size: 20px;
 }
+.post_activity {
+    padding-left: 20px;
+    font-size: 20px;
+}
+.post_activity_title {
+    margin-top: -10px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #A9B3C1;
+}
+.post_state {
+    padding-left: 20px;
+    font-size: 20px;
+}
+.post_state_title {
+    margin-top: -10px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #A9B3C1;
+}
 .recent_post .post_img {
     padding-right: 20px;
 }
