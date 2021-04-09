@@ -45,7 +45,7 @@
   grid-area: left;
   display: flex;
   justify-content:flex-start;
-  padding-left: 70px;
+  padding-left: 54px;
   /* margin-left: auto; */
   margin-left: 40px;
 }
@@ -61,8 +61,8 @@
 
 .navbar_logo {
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 42px;
+  width: 42px;
   /* padding-right: 20px; */
   margin-right: 20px;
   align-self: center;
@@ -224,6 +224,6 @@ footer h1 {
 
 footer h1 {
   color: rgba(2, 60, 64, .75);
-  padding-left: 100px;
+  padding-left: 16px;
   font-size: 30pt;
 }
