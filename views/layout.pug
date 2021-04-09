@@ -4,7 +4,7 @@ html
       block head
         title="Wander Hunt"
         link(rel='stylesheet' href='/stylesheets/layout.css')
-        script(src="/javascripts/post.js" type="module" defer)
+        script(src="/javascripts/layout.js" type="module" defer) 
   body
     div.navbar
       div.nav_content
@@ -16,14 +16,16 @@ html
             div.navbar_postBtn
               button.navbar_postBtn_post(onClick="location.href= '/post/create'") Post
             div.navbar_profileImage
-              if locals.user.profilePhoto === null
-                img.navbar_profileImage_pfp(src="/images/dummylogo.png", alt="")
-              else
-                img.navbar_profileImage_pfp(src=`${locals.user.profilePhoto}`, alt="")
+              img.navbar_profileImage_pfp(src=`${locals.user.profilePhoto}`, alt="" id="navbar_profile")
           else
             div.navbar_btn
               button.navbar_btn_login(onclick="location.href= '/users/log-in'") Log In
             div.navbar_btn
               button.navbar_btn_signup(onclick="location.href= '/users/sign-up'") Sign Up
+    if locals.authenticated
+      div(class="dropdown hiddenDiv")  
+        button.dropdown_link(onclick=`location.href='/users/${locals.user.id}'`) Profile
+        button.dropdown_link(onclick=`location.href='/users/${locals.user.id}/settings'`) Settings
+        form(method="post" action="/users/logout")
+          button(id="logoutBtn" type="submit") Logout
     block content
-    
