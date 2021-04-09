@@ -133,6 +133,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const comments = await Comment.findAll({
     limit: 10,
     include: [{ model: User }, { model: Post }],
+    where: {user_id: userId}
   });
   let joinedOn = user.createdAt.toString().split(' ');
   let date = joinedOn.slice(1, 4).join(' ');
