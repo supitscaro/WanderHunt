@@ -4,7 +4,6 @@ const { csrfProtection, asyncHandler } = require("./utils");
 const { check, validationResult } = require('express-validator');
 const { Post, State, Activity, User, Comment } = require("../db/models");
 const { requireAuth } = require('../auth.js');
-// const { ValidationError } = require('sequelize/types');
 
 const commentsNotFound = () => {
     let error = new Error('Could not find comments');
@@ -85,10 +84,10 @@ router.put('/:id(\\d+)', requireAuth, commentValidators, asyncHandler(async (req
     let comment = { content };
     if (validationErrors.isEmpty()) {
         await commentToUpdate.update(comment);
-        res.json({ commentToUpdate });
-    } else {
+        res.json({commentToUpdate});
+    } else{
         let errors = validationErrors.array().map((e) => e.msg)
-        res.json({ errors });
+        res.json({errors});
     }
 }))
 
