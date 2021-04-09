@@ -5,13 +5,13 @@
 .body-container{
     width: 100%;
     display: grid;
-    grid-template-rows: 150px 1fr;
+    grid-template-rows: 110px 1fr;
     grid-template-columns: 1fr 700px 300px 1fr;
     grid-template-areas: 
     '. top edit .'
     '. left right .'
 }
-
+ 
 .leftColumn{
     grid-area: left;
     float: left;
@@ -72,6 +72,40 @@ img{
 .comments_input{
     border-bottom: 1px solid lightgray;
     padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.commentForm{
+    margin-left: 15px;
+}
+
+.newCommentProfile{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+#newComment{
+    border-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    height: 35px;
+    width: 175px;
+    transition-duration: 1.5s;
+}
+
+#newComment:focus{
+    width: 475px;
+}
+
+.submitComment{
+    background-color: #D33F49;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    height: 30px;
+    width: 60px;
+    border-radius: 3px;
+    margin-left: 15px;
 }
 
 .individualComment{
@@ -135,10 +169,10 @@ img{
 
 .author_photo{
     grid-area: photo;
-    height: 40px;
-    width: 40px;
+    height: 55px;
+    width: 55px;
     margin-left: 15px;
-    margin-top: 5px;
+    padding-bottom: 5px;
 }
 
 .author_photo_img{
@@ -147,7 +181,7 @@ img{
 
 .author_name{
     grid-area: name;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .author_title{
@@ -156,10 +190,7 @@ img{
 }
 
 .related{
-    margin-top: 50px;
     background-color: white;
-    height: 500px;
-    padding: 15px;
     border-radius: 3px;
     box-shadow:
         0 2px 2px rgba(0, 0, 0, 0.034),
@@ -175,4 +206,45 @@ img{
     height: 30px;
     width: 70px;
     border-radius: 3px;
+}
+
+.recent_post{
+    max-height: 75%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
+    padding-top: 10px;
+    max-height: 100px;
+}
+
+.post_img {
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.recent_post > .post_img {
+    border-radius: 50%;
+    width:  60px;
+    height: 60px;
+}
+
+.post_author {
+    margin-top: -10px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #A9B3C1;
+}
+.post_title {
+    padding-left: 20px;
+    font-size: 20px;
+}
+.post_activity {
+    padding-left: 20px;
+    font-size: 20px;
 }
