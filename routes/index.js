@@ -25,8 +25,8 @@ function mostPopular(comments) {
   let challengePostId;
   let tracker = {}
 
-  for (let i = 0; i < comments.length && popularPosts.length < 5; i++) {
 
+  for (let i = 0; i < comments.length && popularPosts.length < 4; i++) {
     if (!tracker[comments[i].post_id]) {
       tracker[comments[i].post_id] = 0
     }

@@ -16,7 +16,7 @@ block content
         div.title
           h2 Popular Posts
         .card
-          div#popular
+          div.popular_group
             each post in popularPosts
               div.topic_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
                 img.post_img(src=post.gallery)
@@ -39,11 +39,14 @@ block content
         .card
           div#activity
             each post in activityPosts
-              div.topic_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
+
+              div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
                 img.post_img(src=post.gallery)
                 div.author_title
                   p.post_title= post.title
                   p.post_author= post.Activity.name
+             
+
         div.title
           h2 Popular States
         .card

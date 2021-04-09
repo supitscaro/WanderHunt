@@ -2,16 +2,20 @@ const express = require('express');
 const router = express.Router();
 const { csrfProtection, asyncHandler } = require("./utils");
 const { check, validationResult } = require('express-validator');
-const { Post, State, Activity, User } = require("../db/models");
+const { Post, State, Activity, User, Comment } = require("../db/models");
 const { requireAuth } = require('../auth.js');
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const postId = parseInt(req.params.id, 10);
     const post = await Post.findByPk(postId, {include: [User, State, Activity]});
-    // if (!post) {
-    //     res.render('../');
-    // }
-    res.render('post', { post });
+    const commentsArray = await Comment.findAll({
+        where: {
+            post_id: postId
+        },
+        include: {model: User},
+        order: [['createdAt', 'ASC']]
+    })
+    res.render('post', { post, commentsArray });
 }));
 
 router.get('/create', csrfProtection, requireAuth, asyncHandler(async (req, res) => {

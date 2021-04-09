@@ -124,7 +124,10 @@ router.post('/log-in', csrfProtection, loginValidators,
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   let userId = parseInt(req.params.id, 10);
   let user = await User.findByPk(userId);
-  let users_id = res.locals.user.id;
+  let users_id = -1;
+  if (res.locals.user){
+    users_id = res.locals.user.id;
+  }
   const comments = await Comment.findAll({
     limit: 10,
     include: [{ model: User }, { model: Post }],
