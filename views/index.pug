@@ -1,13 +1,9 @@
 extends layout
-
-
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
-
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
-
 block content
   h1= title
   div.body-container
@@ -18,7 +14,7 @@ block content
         .card
           div.popular_group
             each post in popularPosts
-              div.topic_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
+              div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
                 img.post_img(src=post.gallery)
                 div.author_title
                   p.post_title= post.title
@@ -28,7 +24,7 @@ block content
         .card
           div#recent
             each post in recentPosts
-              div.topic_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
+              div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
                 img.post_img(src=post.gallery)
                 div.author_title
                   p.post_title= post.title
@@ -39,20 +35,17 @@ block content
         .card
           div#activity
             each post in activityPosts
-
               div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
-                img.post_img(src=post.gallery)
                 div.author_title
                   p.post_title= post.title
                   p.post_author= post.Activity.name
-             
-
+                img.post_img(src=post.gallery)
         div.title
           h2 Popular States
         .card
           div#state
             each post in statePosts
-              div.topic_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
+              div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
                 img.post_img(src=post.gallery)
                 div.author_title
                   p.post_title= post.title
