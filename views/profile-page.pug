@@ -13,7 +13,7 @@ block content
             div.profile_header_name
                 h2(value=user.username)= user.username
                 if user.id === users_id
-                    button.header_btn_settings(type='button' onClick=`location.href= "/user/${user.id}/settings"`) EDIT MY PROFILE
+                    button.header_btn_settings(type='button' onClick=`location.href= "/users/${user.id}/settings"`) EDIT MY PROFILE
                 else
                     button.header_btn_settings(type='button' onClick="") FOLLOW
         div.comment_title Comments
