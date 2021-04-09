@@ -1,7 +1,9 @@
 * {
     box-sizing: border-box;
   }
-
+body {
+  margin: 0;
+}
   /* input[type=text], select, textarea {
     width: 92%;
     /* padding: 12px; */
