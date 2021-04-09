@@ -21,7 +21,7 @@ block content
         div.left_column
             div.left_column_content
                each comment in comments
-                div.recent_comment(onclick=`location.href=\"http://localhost:8080/post/${comment.Post.id}\"`)
+                div.recent_comment(onclick=`location.href=\"/post/${comment.Post.id}\"`)
                     img.post_img(src=comment.Post.gallery)
                     div.post_info
                         p.post_title= comment.Post.title

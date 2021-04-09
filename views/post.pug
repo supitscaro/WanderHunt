@@ -1,23 +1,23 @@
 extends layout
-append head  
+append head
     link(rel='stylesheet' href='/stylesheets/post.css')
-    script(src="/javascripts/post.js" type="module" defer)  
-block content 
-    div.body-container 
+    script(src="/javascripts/post.js" type="module" defer)
+block content
+    div.body-container
         div.titleInfo
             h1.title= post.title
             h3.activity= post.Activity.name
-        div.editPost    
-            if !locals.authenticated || post.user_id !== locals.user.id 
+        div.editPost
+            if !locals.authenticated || post.user_id !== locals.user.id
                 button.edit_button(type='button' style='display:none' value='edit' id=`edit_button_${post.id}`) Edit Post
-            else 
+            else
                 button.edit_button(type='button' value='edit' id=`edit_button_${post.id}`) Edit Post
-        div.leftColumn 
+        div.leftColumn
             div.product
-                div.location    
+                div.location
                     h3 Located in #{post.State.name}
                 div.media
-                    img(src=post.gallery)  
+                    img(src=post.gallery)
                 div.description
                     h3 Description
                     p=post.description
@@ -26,35 +26,35 @@ block content
                 if !locals.authenticated
                     div.comments_input(style="display:none")
                         form(method='post')
-                            input(type='text' name='newComment' id='newComment' placeholder='What do you think of this?')  
+                            input(type='text' name='newComment' id='newComment' placeholder='What do you think of this?')
                             button.submitComment(type='submit' value='submit' id=`submitComment_`) Send
-                else    
+                else
                     div.comments_input
                         img.newCommentProfile(src=`${locals.user.profilePhoto}`)
                         form.commentForm(method='post')
-                            input(name='newComment' id='newComment' placeholder='What do you think of this?')  
+                            input(name='newComment' id='newComment' placeholder='What do you think of this?')
                             button.submitComment(type='submit' value='submit' id=`submitComment_${locals.user.id}`) Post
                 div.comments_body
-                    each comment in commentsArray 
-                        div.individualComment(id=`individualComment_${comment.id}`) 
+                    each comment in commentsArray
+                        div.individualComment(id=`individualComment_${comment.id}`)
                             div.commentTop
                                 img.commentProfilePhoto(src=`${comment.User.profilePhoto}` id=`commentUser_${comment.user_id}`)
                                 h4.commentProfileName=comment.User.username
                                 if !locals.authenticated || comment.user_id !== locals.user.id
                                     button.deleteCommentBtn(type='button' style='display:none' value='delete' id=`deleteComment_${comment.id}`) Delete Comment
-                                else 
+                                else
                                     button.deleteCommentBtn(type='button' value='delete' id=`deleteComment_${comment.id}`) Delete Comment
                             p.commentContent=comment.content
-        div.rightColumn 
+        div.rightColumn
             div.author
                 h2.author_title Author
                 div.author_photo(name='author_photo')
-                    img.author_photo_img(src=post.User.profilePhoto id=`author_${post.User.id}`) 
+                    img.author_photo_img(src=post.User.profilePhoto id=`author_${post.User.id}`)
                 h3.author_name= post.User.username
             h2.related_title More #{post.Activity.name} Adventures
             div.related
                 each post in relatedPosts
-                    div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
+                    div.recent_post(onclick=`location.href=\"/post/${post.id}\"`)
                         img.post_img(src=post.gallery)
                         div.author_title
                             p.post_title= post.title
