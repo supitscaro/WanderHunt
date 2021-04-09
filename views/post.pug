@@ -5,8 +5,8 @@ append head
 block content
     div.body-container
         div.titleInfo
-            h1.title= post.title
-            h3.activity= post.Activity.name
+            h1.postTitle= post.title
+            h3.activity=post.Activity.name
         div.editPost
             if !locals.authenticated || post.user_id !== locals.user.id
                 button.edit_button(type='button' style='display:none' value='edit' id=`edit_button_${post.id}`) Edit Post

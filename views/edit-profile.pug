@@ -11,36 +11,34 @@ block content
           li= error
   div.container
     div
-      h1 Edit Your Profile
+      h1.title Edit Your Profile
     div
       form(method="post" action=`/post/${user.id}/settings`)
         input(type="hidden" name="_csrf" value=csrfToken)
         div.row
           div.col-25
-            label(for="username") Username
-
+            label.label(for="username") Username
           div.col-75
-            input(type="text" name="username" id="username" value=user.username)
+            input.input(type="text" name="username" id="username" value=user.username)
         div.row
           div.col-25
-            label(for="email") Email
+            label.label(for="email") Email
           div.col-75
-            input(type="email" name="email" id="email" value=user.email)
+            input.input(type="email" name="email" id="email" value=user.email)
         div.row
           div.col-25
-            label(for="profilePhoto") Profile Photo
+            label.label(for="profilePhoto") Profile Photo
           div.col-75
-            input(type="text" name="profilePhoto" id="profilePhoto" value=user.profilePhoto)
+            input.input(type="text" name="profilePhoto" id="profilePhoto" value=user.profilePhoto)
         div.row
           div.col-25
-            label(for="password") Password
+            label.label(for="password") Password
           div.col-75
-            input(type="password" placeholder="Enter New Password" name="password")
+            input.input(type="password" placeholder="Enter New Password" name="password")
         div.row
           div.col-25
-            label(for="confirmedPassword") Confirmed Password
+            label.label(for="confirmedPassword") Confirmed Password
           div.col-75
-            input(type="password" placeholder="Confirm Password" name="confirmedPassword")
+            input.input(type="password" placeholder="Confirm Password" name="confirmedPassword")
         div.row
-          input(type="submit" value="Update Profile")
-  
+          input.button(type="submit" value="Update Profile")

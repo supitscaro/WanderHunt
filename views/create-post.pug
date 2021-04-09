@@ -11,7 +11,7 @@ block content
           li= error
   div.container
     div
-      h1 Create Your Post
+      h1.title Create Your Post
 
     div
       form(method="post" action="/post/create")
@@ -54,4 +54,4 @@ block content
                   option(value=activity.id)=activity.name
 
         div.row
-          input(type="submit" value="Create Post")
+          input.button(type="submit" value="Create Post")
