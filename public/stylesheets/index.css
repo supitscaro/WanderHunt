@@ -63,7 +63,7 @@ footer{
     max-height: 50%;
 }
 
-.recent_post {
+.topic_post {
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -71,9 +71,10 @@ footer{
     width: 100%;
 }
 
-.recent_post:hover {
+.topic_post:hover {
     background-color: #FAFAFA;
 }
+
 
 .author_title {
     display: flex;

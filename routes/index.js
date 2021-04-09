@@ -13,7 +13,7 @@ router.get('/', asyncHandler(async (req, res, next) => {
   let activityPosts = await getActivityPosts(activities);
   let states = await topStates();
   let statePosts = await getStatePosts(states)
-  res.render('index', { title: 'Wanderhunt', popularPosts: popularPosts, recentPosts: recentPosts, activityPosts: activityPosts });
+  res.render('index', { title: 'Wanderhunt', popularPosts: popularPosts, recentPosts: recentPosts, activityPosts: activityPosts, statePosts: statePosts });
 }));
 
 
