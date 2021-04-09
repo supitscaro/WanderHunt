@@ -134,8 +134,15 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     limit: 10,
     include: [{ model: User }, { model: Post }],
   });
+  let joinedOn = user.createdAt.toString().split(' ');
+  let date = joinedOn.slice(1, 4).join(' ');
+  // let date;
+  // for (let i = 0; i < 4; i++) {
+  //   let char = joinedOn[i];
+  //   date += await char;
+  // }
 
-  res.render('profile-page', { user, users_id, comments });
+  res.render('profile-page', { user, users_id, comments, date });
 }));
 
 router.get('/:id(\\d+)/settings', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
