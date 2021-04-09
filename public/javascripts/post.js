@@ -8,7 +8,7 @@ function refreshCSS(){
         }
     }
 }
-
+ 
 let profilePhoto = document.querySelector('.author_photo');
 profilePhoto.addEventListener('click', (e) => {
     let targetId = e.target.id;

@@ -15,7 +15,14 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
         include: {model: User},
         order: [['createdAt', 'ASC']]
     })
-    res.render('post', { post, commentsArray });
+    const relatedPosts = await Post.findAll({
+        where: {
+            activity_id: post.activity_id
+        },
+        limit: 5,
+        include: [User, State, Activity]
+    });
+    res.render('post', { post, commentsArray, relatedPosts });
 }));
 
 router.get('/create', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
