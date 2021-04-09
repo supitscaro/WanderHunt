@@ -52,15 +52,17 @@ router.post('/sign-up',
     const user = User.build({ username, email });
 
     const validationErrors = validationResult(req);
+    console.log('validation errors', validationErrors);
     let errors = [];
     if (validationErrors.isEmpty()) {
       const hashedPassword = await bcrypt.hash(password, 10);
 
       user.hashedPassword = hashedPassword;
+
       await user.save()
 
       loginUser(req, res, user)
-      restoreUser(req, res, next)
+
       res.redirect('/');
     } else {
       validationErrors.array().map((e) => errors.push(e.msg));
@@ -125,7 +127,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   let userId = parseInt(req.params.id, 10);
   let user = await User.findByPk(userId);
   let users_id = -1;
-  if (res.locals.user){
+  if (res.locals.user) {
     users_id = res.locals.user.id;
   }
   const comments = await Comment.findAll({
