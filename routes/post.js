@@ -15,7 +15,14 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
         include: {model: User},
         order: [['createdAt', 'ASC']]
     })
-    res.render('post', { post, commentsArray });
+    const relatedPosts = await Post.findAll({
+        where: {
+            activity_id: post.activity_id
+        },
+        limit: 5,
+        include: [User, State, Activity]
+    });
+    res.render('post', { post, commentsArray, relatedPosts });
 }));
 
 router.get('/create', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
@@ -95,12 +102,11 @@ router.post('/:id(\\d+)/edit', csrfProtection,
     requireAuth,
     asyncHandler(async(req,res)=>{
         const { title, description, gallery, state, activity } = req.body;
-        let galleryArray = gallery.split(', ');
         const post_id = parseInt(req.params.id, 10)
         const postToUpdate = await Post.findByPk(post_id);
         let activityNum = parseInt(activity, 10);
         let stateNum = parseInt(state, 10);
-        let post = {title, description, gallery: galleryArray, state_id: stateNum, activity_id: activityNum}
+        let post = {title, description, gallery, state_id: stateNum, activity_id: activityNum}
 
         const validationErrors = validationResult(req);
         let errors = [];

@@ -37,8 +37,8 @@ block content
             each post in activityPosts
               div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
                 div.author_title
-                  p.post_title= post.title
-                  p.post_author= post.Activity.name
+                  p.post_activity= post.Activity.name
+                  p.post_activity_title= post.title
                 img.post_img(src=post.gallery)
         div.title
           h2 Popular States
@@ -48,9 +48,8 @@ block content
               div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
                 img.post_img(src=post.gallery)
                 div.author_title
-                  p.post_title= post.title
-                  p.post_author= post.State.name
-
+                  p.post_state= post.State.name
+                  p.post_state_title= post.title
   footer.footer
     h1 The Creators
     .creators-foot

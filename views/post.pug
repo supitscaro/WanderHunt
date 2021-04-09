@@ -1,7 +1,7 @@
 extends layout
-append head 
+append head  
     link(rel='stylesheet' href='/stylesheets/post.css')
-    //- script(src="/javascripts/post.js" type="module" defer)
+    script(src="/javascripts/post.js" type="module" defer)  
 block content 
     div.body-container 
         div.titleInfo
@@ -30,9 +30,10 @@ block content
                             button.submitComment(type='submit' value='submit' id=`submitComment_`) Send
                 else    
                     div.comments_input
-                        form(method='post')
-                            input(type='text' name='newComment' id='newComment' placeholder='What do you think of this?')  
-                            button.submitComment(type='submit' value='submit' id=`submitComment_${locals.user.id}`) Send
+                        img.newCommentProfile(src=`${locals.user.profilePhoto}`)
+                        form.commentForm(method='post')
+                            input(name='newComment' id='newComment' placeholder='What do you think of this?')  
+                            button.submitComment(type='submit' value='submit' id=`submitComment_${locals.user.id}`) Post
                 div.comments_body
                     each comment in commentsArray 
                         div.individualComment(id=`individualComment_${comment.id}`) 
@@ -50,6 +51,11 @@ block content
                 div.author_photo(name='author_photo')
                     img.author_photo_img(src=post.User.profilePhoto id=`author_${post.User.id}`) 
                 h3.author_name= post.User.username
+            h2.related_title More #{post.Activity.name} Adventures
             div.related
-                h2.related_title Related Activities
-                p Some fun related activities
+                each post in relatedPosts
+                    div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
+                        img.post_img(src=post.gallery)
+                        div.author_title
+                            p.post_title= post.title
+                            p.post_author= post.User.username
