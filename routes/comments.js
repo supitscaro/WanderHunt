@@ -14,6 +14,7 @@ const commentsNotFound = () => {
 
 // get
 router.get('/post/:id(\\d+)', asyncHandler(async (req, res, next) => {
+    console.log('Hello world')
     let post_id = parseInt(req.params.id, 10);
     let comments = await Comment.findAll({
         include: { model: User },
@@ -64,7 +65,8 @@ router.post('/', requireAuth, commentValidators, asyncHandler(async (req, res, n
     const {user_id, post_id, content} = req.body;
     let validationErrors = validationResult(req);
     if (validationErrors.isEmpty()){
-        let comment = await Comment.create({user_id, post_id, content});
+        let newComment = await Comment.create({user_id, post_id, content});
+        let comment = await Comment.findByPk(newComment.id, {include: {model: User}})
         res.json({comment});
     } else{
         let errors = validationErrors.array().map((e) => e.msg) 

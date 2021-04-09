@@ -74,7 +74,7 @@ img{
     padding: 15px;
 }
 
-.comment{
+.individualComment{
     display: grid;
     grid-template-rows: 20px, 1fr;
     grid-template-areas: 
@@ -100,7 +100,20 @@ img{
 
 .commentProfileName{
     padding-left: 15px;
+}
 
+.deleteCommentBtn{
+    margin-left: 300px;
+    background-color: #D33F49;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    height: 30px;
+    width: 150px;
+    border-radius: 3px;
+}
+
+.hideDiv{
+    display: none;
 }
 
 .author{

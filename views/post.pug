@@ -1,7 +1,7 @@
 extends layout
 append head 
     link(rel='stylesheet' href='/stylesheets/post.css')
-    script(src="/javascripts/post.js" type="module" defer)
+    //- script(src="/javascripts/post.js" type="module" defer)
 block content 
     div.body-container 
         div.titleInfo
@@ -24,14 +24,19 @@ block content
             h3.comments_title Comments
             div.comments
                 div.comments_input
-                    input(type='text' name='newComment' id='newComment' placeholder='What do you think of this?')  
-                    button(type='submit' value='submit' id='submitComment') Send
+                    form(method='post')
+                        input(type='text' name='newComment' id='newComment' placeholder='What do you think of this?')  
+                        button.submitComment(type='submit' value='submit' id=`submitComment_${locals.user.id}`) Send
                 div.comments_body
                     each comment in commentsArray 
-                        div.comment 
+                        div.individualComment(id=`individualComment_${comment.id}`) 
                             div.commentTop
                                 img.commentProfilePhoto(src=`${comment.User.profilePhoto}` id=`commentUser_${comment.user_id}`)
-                                h4.commentProfileName=comment.User.username 
+                                h4.commentProfileName=comment.User.username
+                                if !locals.authenticated || comment.user_id !== locals.user.id
+                                    button.deleteCommentBtn(type='button' style='display:none' value='delete' id=`deleteComment_${comment.id}`) Delete Comment
+                                else 
+                                    button.deleteCommentBtn(type='button' value='delete' id=`deleteComment_${comment.id}`) Delete Comment
                             p.commentContent=comment.content
         div.rightColumn 
             div.author
