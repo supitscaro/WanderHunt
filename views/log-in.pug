@@ -1,5 +1,4 @@
-
-
+extends layout.pug
 block content
   link(rel='stylesheet' href='/stylesheets/signup-login.css')
   if errors
@@ -22,5 +21,6 @@ block content
         label(for="password") Password
       input(id="password" type="password" name="password")
       div
+        button.goBackbtn(type="button" onclick="location.href= '/'") Cancel
         button.loginbtn(type="submit" onclick="'location.href= '/'") Login
       //- input(type="submit" value="log-in")

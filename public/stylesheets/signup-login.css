@@ -30,7 +30,7 @@ hr {
 }
 
 /* Set a style for all buttons */
-button {
+/* button {
   background-color: #b0dda4;
   color: white;
   padding: 14px 20px;
@@ -40,7 +40,7 @@ button {
   width: 100%;
   opacity: 0.9;
   border-radius: 3px;
-}
+} */
 
 button:hover {
   opacity:1;
@@ -54,13 +54,56 @@ button:hover {
 
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn {
-  float: left;
-  width: 48%;
+    float: left;
+    width: 48%;
+    background-color: #d33f49;
+    float: right;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 3px;
 }
 
 .signupbtn {
-    float: right;
+  float: left;
+  width: 48%;
+  background-color: #b0dda4;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  border-radius: 3px;
+}
+.loginbtn{
+    float: left;
     width: 48%;
+    background-color: #b0dda4;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 3px;
+}
+
+.goBackbtn{
+    float: left;
+    width: 48%;
+    background-color: #d33f49;
+    float: right;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 3px;
 }
 
 /* Add padding to container elements */
