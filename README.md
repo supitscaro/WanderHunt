@@ -11,19 +11,19 @@ Wander Hunt was created using JavaScript, Express, postgreSQL, PugJS, and Heroku
 ### Screenshots
 
 #### Home Page
-![Home Page](/images/home-page.png)
+![Home Page](public/images/home-page.png)
 
 #### Post Page
-![Post Page](/images/post-page.png)
+![Post Page](public/images/post-page.png)
 
 #### Edit Profile Page
-![Edit Profile Page](/images/edit-profile.png)
+![Edit Profile Page](public/images/edit-profile.png)
 
 #### Create Post Page
-![Create Post Page](/images/create-post.png)
+![Create Post Page](public/images/create-post.png)
 
 #### Profile Page
-![Profile Page](/images/profile-page.png)
+![Profile Page](public/images/profile-page.png)
 
 ### Technical Structure
 
