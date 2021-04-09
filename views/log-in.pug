@@ -10,7 +10,7 @@ block content
 
   div.container
     h1 Log in
-
+ 
     form(action='/users/log-in' method='post')
       div
       input(type='hidden' name='_csrf' value=csrfToken)
@@ -23,5 +23,8 @@ block content
       div
         button.goBackbtn(type="button" onclick="location.href= '/'") Cancel
         button.loginbtn(type="submit" onclick="'location.href= '/'") Login
+    form(method='post' action='/users/demo')
+      button.demobtn(type="submit") Demo User
+  
       //- input(type="submit" value="log-in")
 

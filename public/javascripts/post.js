@@ -40,7 +40,7 @@ submitComment.addEventListener('click', async (e) => {
     let user_id = e.target.id.slice(14);
     let currentURL = window.location.href;
     let post_id= currentURL.slice(currentURL.indexOf('post') + 5);
-    let res = await fetch('http://localhost:8080/comments/', { //Need to change this to match heroku website
+    let res = await fetch('/comments/', { //Need to change this to match heroku website
         method: "POST",
         body: JSON.stringify({user_id, post_id, content}),
         headers: { "Content-type": "application/json" }
@@ -69,7 +69,7 @@ const deleteBtns = document.querySelectorAll('.deleteCommentBtn');
 deleteBtns.forEach((el) => {
     el.addEventListener('click', async (e) => {
         let comment_id = e.target.id.slice(14);
-        let res = await fetch(`http://localhost:8080/comments/${comment_id}`, {
+        let res = await fetch(`/comments/${comment_id}`, {
             method: "DELETE",
             headers: { "Content-type": "application/json" }
         });
