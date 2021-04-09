@@ -11,7 +11,7 @@ block content
       div.left-column
         div.title
           h2 Popular Posts
-        .card
+        .card(class="animate__animated animate__rotateInDownLeft")
           div.popular_group
             each post in popularPosts
               div.recent_post(onclick=`location.href=\"/post/${post.id}\"`)
@@ -21,7 +21,7 @@ block content
                   p.post_author= post.User.username
         div.title
           h2 Recent Posts
-        .card
+        .card(class="animate__animated animate__rotateInUpLeft")
           div#recent
             each post in recentPosts
               div.recent_post(onclick=`location.href=\"/post/${post.id}\"`)
@@ -32,7 +32,7 @@ block content
       div.right-column
         div.title
           h2 Popular Activities
-        .card
+        .card(class="animate__animated animate__rotateInDownRight")
           div#activity
             each post in activityPosts
               div.recent_post(onclick=`location.href=\"/post/${post.id}\"`)
@@ -42,7 +42,7 @@ block content
                 img.post_img(src=post.gallery)
         div.title
           h2 Popular States
-        .card
+        .card(class="animate__animated animate__rotateInUpRight")
           div#state
             each post in statePosts
               div.recent_state(onclick=`location.href=\"/post/${post.id}\"`)

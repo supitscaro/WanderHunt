@@ -4,7 +4,7 @@ append head
     script(src="/javascripts/post.js" type="module" defer)
 block content
     div.body-container
-        div.titleInfo
+        div.titleInfo(class="animate__animated animate__fadeInLeftBig")
             h1.postTitle= post.title
             h3.activity=post.Activity.name
         div.editPost
@@ -13,7 +13,7 @@ block content
             else
                 button.edit_button(type='button' value='edit' id=`edit_button_${post.id}`) Edit Post
         div.leftColumn
-            div.product
+            div.product(class="animate__animated animate__fadeInUp")
                 div.location
                     h3 Located in #{post.State.name}
                 div.media
@@ -45,7 +45,7 @@ block content
                                 else
                                     button.deleteCommentBtn(type='button' value='delete' id=`deleteComment_${comment.id}`) Delete Comment
                             p.commentContent=comment.content
-        div.rightColumn
+        div.rightColumn(class="animate__animated animate__fadeInDownBig")
             div.author
                 h2.author_title Author
                 div.author_photo(name='author_photo')
