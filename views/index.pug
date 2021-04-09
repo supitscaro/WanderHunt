@@ -14,7 +14,7 @@ block content
         .card
           div.popular_group
             each post in popularPosts
-              div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
+              div.recent_post(onclick=`location.href=\"/post/${post.id}\"`)
                 img.post_img(src=post.gallery)
                 div.author_title
                   p.post_title= post.title
@@ -24,7 +24,7 @@ block content
         .card
           div#recent
             each post in recentPosts
-              div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
+              div.recent_post(onclick=`location.href=\"/post/${post.id}\"`)
                 img.post_img(src=post.gallery)
                 div.author_title
                   p.post_title= post.title
@@ -35,7 +35,7 @@ block content
         .card
           div#activity
             each post in activityPosts
-              div.recent_post(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
+              div.recent_post(onclick=`location.href=\"/post/${post.id}\"`)
                 div.author_title
                   p.post_activity= post.Activity.name
                   p.post_activity_title= post.title
@@ -45,7 +45,7 @@ block content
         .card
           div#state
             each post in statePosts
-              div.recent_state(onclick=`location.href=\"http://localhost:8080/post/${post.id}\"`)
+              div.recent_state(onclick=`location.href=\"/post/${post.id}\"`)
                 img.post_img(src=post.gallery)
                 div.author_title
                   p.post_state= post.State.name
