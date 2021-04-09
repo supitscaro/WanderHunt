@@ -23,10 +23,16 @@ block content
                     p=post.description
             h3.comments_title Comments
             div.comments
-                div.comments_input
-                    form(method='post')
-                        input(type='text' name='newComment' id='newComment' placeholder='What do you think of this?')  
-                        button.submitComment(type='submit' value='submit' id=`submitComment_${locals.user.id}`) Send
+                if !locals.authenticated
+                    div.comments_input(style="display:none")
+                        form(method='post')
+                            input(type='text' name='newComment' id='newComment' placeholder='What do you think of this?')  
+                            button.submitComment(type='submit' value='submit' id=`submitComment_`) Send
+                else    
+                    div.comments_input
+                        form(method='post')
+                            input(type='text' name='newComment' id='newComment' placeholder='What do you think of this?')  
+                            button.submitComment(type='submit' value='submit' id=`submitComment_${locals.user.id}`) Send
                 div.comments_body
                     each comment in commentsArray 
                         div.individualComment(id=`individualComment_${comment.id}`) 
