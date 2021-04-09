@@ -55,7 +55,7 @@ function mostPopular(comments) {
     if (i === comments.length - 1) {
 
       popularPosts.push(currentPostId);
-      tracker[currentPostId] = 0
+      tracker[currentPostId] = -(tracker[currentPostId]);
       i = 0
     }
   }
@@ -112,7 +112,7 @@ async function topActivities() {
     if (i === posts.length - 1) {
 
       popActivities.push(currentActivityId);
-      tracker[currentActivityId] = 0
+      tracker[currentActivityId] = -(tracker[currentActivityId])
       i = 0
     }
   }
@@ -135,7 +135,6 @@ async function topStates() {
   let popStates = []
   let posts = await Post.findAll({ order: ['state_id'] })
 
-
   let currentStateId;
   let challengeStateId;
   let tracker = {}
@@ -144,18 +143,18 @@ async function topStates() {
     if (!tracker[posts[i].state_id]) {
       tracker[posts[i].state_id] = 0
     }
-    if (!currentStateId && !popStates.includes(posts[i].states_id)) {
+    if (!currentStateId && !popStates.includes(posts[i].state_id)) {
       currentStateId = posts[i].state_id;
     }
     if (currentStateId === posts[i].state_id) {
       tracker[posts[i].state_id]++;
     } else {
-      if (!challengeStateId && !popStates.includes(posts[i].states_id)) {
+      if (!challengeStateId && !popStates.includes(posts[i].state_id)) {
         challengeStateId = posts[i].state_id
       }
-    }
-    if (challengeStateId === posts[i].state_id) {
-      tracker[posts[i].state_id]++;
+      if (challengeStateId === posts[i].state_id) {
+        tracker[posts[i].state_id]++;
+      }
     }
     if (tracker[challengeStateId] > tracker[currentStateId] && !popStates.includes(challengeStateId)) {
       currentStateId = challengeStateId
@@ -164,12 +163,11 @@ async function topStates() {
     if (i === posts.length - 1) {
 
       popStates.push(currentStateId);
-      tracker[currentStateId] = 0
-      currentStateId = null;
+      tracker[currentStateId] = -(tracker[currentStateId]);
       i = 0
     }
   }
-
+  console.log(popStates);
   return popStates;
 }
 
