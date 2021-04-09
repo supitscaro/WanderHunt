@@ -21,18 +21,16 @@ block content
         div.left_column
             div.left_column_content
                each comment in comments
-                div.recent_comment
+                div.recent_comment(onclick=`location.href=\"http://localhost:8080/post/${comment.Post.id}\"`)
                     img.post_img(src=comment.Post.gallery)
                     div.post_info
                         p.post_title= comment.Post.title
                         p.post_author= comment.User.username
         div.right_column
             div.right_column_content
-                p Before Panama was open to land tours, my father and I took a cruise through the Panama Canal. As an engineer, he was fascinated by its construction. He read and urged me to read The Path Between the Seas: The Creation of the Panama Canal, 1870-1914 . Without this historical guide, looking at the water and buildings would have had little meaning. The Canal passage takes only one day; we agreed to spend some time in San Juan , Puerto Rico to extend our holiday.
-                p Before Panama was open to land tours, my father and I took a cruise through the Panama Canal. As an engineer, he was fascinated by its construction. He read and urged me to read The Path Between the Seas: The Creation of the Panama Canal, 1870-1914 . Without this historical guide, looking at the water and buildings would have had little meaning. The Canal passage takes only one day; we agreed to spend some time in San Juan , Puerto Rico to extend our holiday.
-                p Before Panama was open to land tours, my father and I took a cruise through the Panama Canal. As an engineer, he was fascinated by its construction. He read and urged me to read The Path Between the Seas: The Creation of the Panama Canal, 1870-1914 . Without this historical guide, looking at the water and buildings would have had little meaning. The Canal passage takes only one day; we agreed to spend some time in San Juan , Puerto Rico to extend our holiday.
+                p.joined_on Joined on
+                p.created_date= date
 
-
-    footer.footer
-        div
-        h2 Footer
+    //- footer.footer
+    //-     div
+    //-     h2 Footer
