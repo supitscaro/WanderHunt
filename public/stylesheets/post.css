@@ -3,7 +3,7 @@
     display: grid;
     grid-template-rows: 110px 1fr;
     grid-template-columns: 1fr 700px 300px 1fr;
-    grid-template-areas: 
+    grid-template-areas:
     '. top edit .'
     '. left right .'
 }
@@ -11,12 +11,14 @@
 .leftColumn{
     grid-area: left;
     float: left;
-    margin-right: 50px
+    margin-right: 50px;
+    margin-top: 30px;
 }
 
 .rightColumn{
     grid-area: right;
     float: right;
+    margin-top: 30px
 }
 
 .titleInfo{
@@ -107,7 +109,7 @@ img{
 .individualComment{
     display: grid;
     grid-template-rows: 20px, 1fr;
-    grid-template-areas: 
+    grid-template-areas:
     "commentTop"
     "commentContent";
     border-bottom: solid 1px lightgray;
@@ -153,7 +155,7 @@ img{
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 2fr;
-    grid-template-areas: 
+    grid-template-areas:
     'title title'
     'photo name';
     box-shadow:
@@ -243,4 +245,8 @@ img{
 .post_activity {
     padding-left: 20px;
     font-size: 20px;
+}
+
+.postTitle {
+    margin-left: -18px;
 }
