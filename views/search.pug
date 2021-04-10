@@ -1,0 +1,11 @@
+extends layout
+append head
+    link(rel="stylesheet" href="/stylesheets/index.css")
+block content
+    div.body-container
+        each post in posts
+            div.recent_post(onclick=`location.href=\"/post/${post.id}\"`)
+                img.post_img(src=post.gallery)
+                div.author_title
+                    p.post_title= post.title
+                    p.post_author= post.User.username
