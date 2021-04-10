@@ -32,6 +32,7 @@ hr {
 
 .form{
   display: flex;
+  align-content: center;
   align-items: flex-start;
   justify-content: center;
 }
