@@ -15,6 +15,11 @@
     display: inline-block;
   }
 
+  .title {
+      padding-top: 20px;
+      padding-left: 40px;
+  }
+
   input[type=submit] {
     background-color: #4CAF50;
     color: white;
@@ -34,11 +39,18 @@
 
   .container {
     border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color: white;
     margin-left: 300px;
-    /* padding-right: 20px;
-    padding-left:200px;
-    height: 400px; */
+    width: 60%;
+    box-shadow:
+        0 2px 2px rgba(0, 0, 0, 0.034),
+        0 6px 5px rgba(0, 0, 0, 0.048),
+        0 12px 10px rgba(0, 0, 0, 0.06),
+        0 22px 17px rgba(0, 0, 0, 0.052);
+  }
+
+  .row {
+      padding-left: 40px;
   }
 
   .col-25 {
@@ -49,8 +61,13 @@
 
   .col-75 {
     float: left;
-    width: 75%;
+    width: 96%;
     margin-top: 6px;
+  }
+
+  .button {
+      margin-bottom: 20px;
+      margin-left: 885px !important;
   }
 
   /* Clear floats after the columns */
@@ -59,8 +76,6 @@
     display: table;
     clear: both;
   }
-
-
 
   /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
