@@ -8,7 +8,7 @@ function refreshCSS(){
         }
     }
 }
- 
+
 let profilePhoto = document.querySelector('.author_photo');
 profilePhoto.addEventListener('click', (e) => {
     let targetId = e.target.id;
@@ -50,7 +50,7 @@ submitComment.addEventListener('click', async (e) => {
     if (result.comment){
         const comments_body = document.querySelector('.comments_body');
         let commentHtml = `
-        <div class="indiviualComment" style="border-bottom: 1px solid lightgray"> 
+        <div class="indiviualComment" style="border-bottom: 1px solid lightgray">
             <div class="commentTop">
                 <img style= "margin:10px 0px 0px 15px"class="commentProfilePhoto" src="${result.comment.User.profilePhoto}" id="commentUser_${result.comment.User.user_id}">
                 <h4 class="commentProfileName" style="margin-top:24px"> ${result.comment.User.username} </h4>

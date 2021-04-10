@@ -6,7 +6,7 @@ append head
 block content
 
     div.profile_container
-        div.profile_header
+        div.profile_header(class="animate__animated animate__backInDown")
             img.profile_header_img(src="", alt="")
             div.profile_image
                 img.profile_image_pfp(src=user.profilePhoto, alt="")
@@ -16,9 +16,9 @@ block content
                     button.header_btn_settings(type='button' onClick=`location.href= "/users/${user.id}/settings"`) EDIT MY PROFILE
                 else
                     button.header_btn_settings(type='button' onClick="") FOLLOW
-        div.comment_title Comments
+        div.comment_title(class="animate__animated animate__fadeInLeftBig" ) Comments
     div.profile_content
-        div.left_column
+        div.left_column(class="animate__animated animate__fadeInLeftBig" )
             div.left_column_content
                each comment in comments
                 div.recent_comment(onclick=`location.href=\"/post/${comment.Post.id}\"`)
@@ -26,7 +26,7 @@ block content
                     div.post_info
                         p.post_title= comment.Post.title
                         p.post_author= comment.User.username
-        div.right_column
+        div.right_column(class="animate__animated animate__fadeInRightBig")
             div.right_column_content
                 p.joined_on Joined on
                 p.created_date= date
