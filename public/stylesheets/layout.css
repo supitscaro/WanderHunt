@@ -17,8 +17,8 @@
   position: fixed;
   right: 0;
   left: 0;
-  top: 0;
-} */
+  top: 0; */
+/* } */
 
 .nav_content {
   display: flex;
@@ -39,6 +39,7 @@
   right: 0;
   left: 0;
   top: 0;
+  z-index: 3
 }
 
 .navbar_left {
