@@ -35,30 +35,25 @@ input[type=submit]:hover {
 .container {
   border-radius: 5px;
   background-color: white;
-  margin-left:500px;
-  margin-top:100px;
-  width: 40%;
+  margin: 100px auto 0px auto;
+  width: 50%;
   box-shadow:
       0 2px 2px rgba(0, 0, 0, 0.034),
       0 6px 5px rgba(0, 0, 0, 0.048),
       0 12px 10px rgba(0, 0, 0, 0.06),
       0 22px 17px rgba(0, 0, 0, 0.052);
-
-  /* padding-right: 20px;
-  padding-left:200px;
-  height: 400px; */
+      padding-bottom: 90px;
 }
 
 .col-25 {
   float: left;
   width: 30%;
   margin-top: 10px;
-  /* margin-top: 6px; */
 }
 
 .col-75 {
   float: left;
-  width: 30%;
+  width: 70%;
   margin-top: 23px;
 }
 
@@ -66,8 +61,9 @@ input[type=submit]:hover {
   border-color: rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   height: 35px;
-  width: 280px;
-  margin-left: 90px;
+  width: 80%;
+  margin-left: 10px;
+  padding-right: 40px;
 }
 
 .label {
@@ -75,13 +71,25 @@ input[type=submit]:hover {
 }
 
 .title {
-  padding-left: 40px;
+  text-align: center;
   padding-top: 40px;
 }
 
 .button {
-  margin-bottom: 40px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.profile-errors{
   margin-left: 40px;
+}
+
+.row:last-child{
+  position: relative
 }
 
 /* Clear floats after the columns */
@@ -92,9 +100,47 @@ input[type=submit]:hover {
 }
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
+@media screen and (max-width: 750px) {
+  .col-25, .col-75, .input, .label, .title, .button, .row, .profile-errors{
     width: 100%;
-    margin-top: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+  }
+
+  input[type=submit]{
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  .col-25, .col-75, .label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .label{
+    padding-top: 15px;
+    padding-bottom: 5px;
+  }
+
+  .input{
+    width: 90%
+  }
+
+  .title{
+    padding-top: 40px;
+  }
+
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px;
   }
 }

@@ -2,43 +2,42 @@ extends layout.pug
 
 block content
   link(rel='stylesheet' href='/stylesheets/edit-profile.css')
-  //- h2=title
-  if errors
-    div
-      p The following error(s) occurred:
-      ul
-        each error in errors
-          li= error
   div.container
     div
       h1.title Edit Your Profile
     div
-      form(method="post" action=`/users/${user.id}/settings`)
-        input(type="hidden" name="_csrf" value=csrfToken)
-        div.row
-          div.col-25
-            label.label(for="username") Username
-          div.col-75
-            input.input(type="text" name="username" id="username" value=user.username)
-        div.row
-          div.col-25
-            label.label(for="email") Email
-          div.col-75
-            input.input(type="email" name="email" id="email" value=user.email)
-        div.row
-          div.col-25
-            label.label(for="profilePhoto") Profile Photo
-          div.col-75
-            input.input(type="text" name="profilePhoto" id="profilePhoto" value=user.profilePhoto)
-        div.row
-          div.col-25
-            label.label(for="password") Password
-          div.col-75
-            input.input(type="password" placeholder="Enter New Password" name="password")
-        div.row
-          div.col-25
-            label.label(for="confirmedPassword") Confirmed Password
-          div.col-75
-            input.input(type="password" placeholder="Confirm Password" name="confirmedPassword")
-        div.row
-          input.button(type="submit" value="Update Profile")
+    if errors
+      div.profile-errors
+        p The following error(s) occurred:
+        ul
+          each error in errors
+            li= error
+    form(method="post" action=`/users/${user.id}/settings`)
+      input(type="hidden" name="_csrf" value=csrfToken)
+      div.row
+        div.col-25
+          label.label(for="username") Username
+        div.col-75
+          input.input(type="text" name="username" id="username" value=user.username)
+      div.row
+        div.col-25
+          label.label(for="email") Email
+        div.col-75
+          input.input(type="email" name="email" id="email" value=user.email)
+      div.row
+        div.col-25
+          label.label(for="profilePhoto") Profile Photo (url)
+        div.col-75
+          input.input(type="text" name="profilePhoto" id="profilePhoto" value=user.profilePhoto)
+      div.row
+        div.col-25
+          label.label(for="password") Password
+        div.col-75
+          input.input(type="password" placeholder="Enter New Password" name="password")
+      div.row
+        div.col-25
+          label.label(for="confirmedPassword") Confirmed Password
+        div.col-75
+          input.input(type="password" placeholder="Confirm Password" name="confirmedPassword")
+      div.row
+        input.button(type="submit" value="Update Profile")
