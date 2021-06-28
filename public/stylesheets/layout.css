@@ -188,7 +188,9 @@ footer{
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  color: #F0efeb;}
+  color: #F0efeb;
+  cursor:pointer;
+}
 .user-foot:hover{
   /* border: 1px solid rgba(0, 0, 0, 0.2); */
   box-shadow:
