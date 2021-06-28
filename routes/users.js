@@ -157,7 +157,7 @@ router.post('/:id(\\d+)/settings', userValidators, csrfProtection, requireAuth, 
   const { password, username, email } = req.body;
   let userId = parseInt(req.params.id, 10);
   let userToUpdate = await User.findByPk(userId);
-
+  console.log(userId)
   const validationErrors = validationResult(req);
   let user = { username, email };
   let errors = [];
@@ -169,7 +169,7 @@ router.post('/:id(\\d+)/settings', userValidators, csrfProtection, requireAuth, 
 
     await userToUpdate.update(user);
 
-    res.redirect(`/${userId}`);
+    res.redirect(`/users/${userId}`);
   } else {
     validationErrors.array().map((e) => errors.push(e.msg));
     res.render('edit-profile', {

@@ -13,7 +13,7 @@ block content
     div
       h1.title Edit Your Profile
     div
-      form(method="post" action=`/post/${user.id}/settings`)
+      form(method="post" action=`/users/${user.id}/settings`)
         input(type="hidden" name="_csrf" value=csrfToken)
         div.row
           div.col-25
