@@ -22,10 +22,17 @@ router.get('/:searchString', asyncHandler(async (req, res, next) => {
             }
         }
      });
+    let userResults = await User.findAll({
+        where: {
+            username: {
+                [Op.iLike]: `%${toSearch}%`
+            }
+        }
+    });
 
-     let activityIds = activityResults.map(e => e.id);
-     let stateIds = stateResults.map(e => e.id);
-
+    let activityIds = activityResults.map(e => e.id);
+    let stateIds = stateResults.map(e => e.id);
+    let userIds = userResults.map(e => e.id);
 
      let posts = await Post.findAll({
         where: {
@@ -36,6 +43,19 @@ router.get('/:searchString', asyncHandler(async (req, res, next) => {
                 },
                 {
                     activity_id: [...activityIds]
+                },
+                {
+                    user_id: [...userIds]
+                },
+                {
+                    title: {
+                        [Op.iLike]: `%${toSearch}%`
+                    }
+                },
+                {
+                    description: {
+                        [Op.iLike]: `%${toSearch}%`
+                    }
                 }
 
             ]
