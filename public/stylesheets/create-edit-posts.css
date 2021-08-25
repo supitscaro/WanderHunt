@@ -1,7 +1,12 @@
 * {
     box-sizing: border-box;
   }
-
+  body{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
   input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
@@ -12,7 +17,7 @@
 
   label {
     padding: 12px 12px 12px 0;
-    display: inline-block;
+    /* display: inline-block; */
   }
 
   .title {
@@ -29,7 +34,7 @@
     cursor: pointer;
     float: left;
     margin-top: 30px;
-    margin-left:700px;
+    /* margin-left:70px; */
 
   }
 
@@ -40,7 +45,7 @@
   .container {
     border-radius: 5px;
     background-color: white;
-    margin-left: 300px;
+    /* margin-left: 300px; */
     width: 60%;
     box-shadow:
         0 2px 2px rgba(0, 0, 0, 0.034),
@@ -50,24 +55,24 @@
   }
 
   .row {
-      padding-left: 40px;
+    padding-left: 40px;
   }
 
   .col-25 {
-    float: left;
+    /* float: left; */
     width: 30%;
     margin-top: 6px;
   }
 
   .col-75 {
-    float: left;
+    /* float: left; */
     width: 96%;
     margin-top: 6px;
   }
 
   .button {
-      margin-bottom: 20px;
-      margin-left: 885px !important;
+    margin-bottom: 20px;
+   
   }
 
   /* Clear floats after the columns */

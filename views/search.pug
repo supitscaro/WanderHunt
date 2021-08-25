@@ -3,6 +3,7 @@ append head
     link(rel="stylesheet" href="/stylesheets/index.css")
 block content
     div.body-container
+        .result_header= `Search Results for "${toSearch}"`
         each post in posts
             div.recent_post(onclick=`location.href=\"/post/${post.id}\"`)
                 img.post_img(src=post.gallery)
