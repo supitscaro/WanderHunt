@@ -63,7 +63,7 @@ router.get('/:searchString', asyncHandler(async (req, res, next) => {
         include: [User, State, Activity]
      })
 
-     res.render('search', { posts })
+    res.render('search', { posts, toSearch })
 }));
 
 module.exports = router;
