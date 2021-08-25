@@ -20,11 +20,13 @@ h1 {
 .left-column{
     float: left;
     width: 66.66%;
+    min-width: fit-content;
 }
 .right-column{
     float: right;
     padding-left: 20px;
     width: 33.34%
+    min-width: fit-content;
 }
 .card{
     background-color: white;
@@ -50,13 +52,14 @@ footer{
 }
 .popular_group{
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: column nowrap;
     max-height: 25%;
 }
 #recent .recent_post{
     max-height: 75%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     width:100%;
+    box-sizing: border-box;
 }
 
 #activity{

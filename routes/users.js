@@ -126,6 +126,7 @@ router.post('/log-in', csrfProtection, loginValidators,
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   let userId = parseInt(req.params.id, 10);
   let user = await User.findByPk(userId);
+  console.log("USER>>>>>>>>>>>>>>>>>>>>", user);
   let users_id = -1;
   if (res.locals.user) {
     users_id = res.locals.user.id;
@@ -154,7 +155,7 @@ router.get('/:id(\\d+)/settings', csrfProtection, requireAuth, asyncHandler(asyn
 }));
 
 router.post('/:id(\\d+)/settings', userValidators, csrfProtection, requireAuth, asyncHandler(async (req, res) => {
-  const { password, username, email } = req.body;
+  const { password, profilePhoto, username, email } = req.body;
   let userId = parseInt(req.params.id, 10);
   let userToUpdate = await User.findByPk(userId);
 
@@ -166,10 +167,11 @@ router.post('/:id(\\d+)/settings', userValidators, csrfProtection, requireAuth, 
     const hashedPassword = await bcrypt.hash(password, 10);
 
     user['hashedPassword'] = hashedPassword;
+    user['profilePhoto'] = profilePhoto;
 
     await userToUpdate.update(user);
 
-    res.redirect(`/${userId}`);
+    res.redirect(`/users/${userId}`);
   } else {
     validationErrors.array().map((e) => errors.push(e.msg));
     res.render('edit-profile', {

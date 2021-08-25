@@ -13,7 +13,7 @@ block content
     div
       h1.title Edit Your Profile
     div
-      form(method="post" action=`/post/${user.id}/settings`)
+      form(method="post" action=`/users/${user.id}/settings`)
         input(type="hidden" name="_csrf" value=csrfToken)
         div.row
           div.col-25
@@ -37,7 +37,7 @@ block content
             input.input(type="password" placeholder="Enter New Password" name="password")
         div.row
           div.col-25
-            label.label(for="confirmedPassword") Confirmed Password
+            label.label(for="confirmedPassword") Repeat Password
           div.col-75
             input.input(type="password" placeholder="Confirm Password" name="confirmedPassword")
         div.row
