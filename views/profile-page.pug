@@ -14,8 +14,8 @@ block content
                 h2(value=user.username)= user.username
                 if user.id === users_id
                     button.header_btn_settings(type='button' onClick=`location.href= "/users/${user.id}/settings"`) EDIT MY PROFILE
-                else
-                    button.header_btn_settings(type='button' onClick="") FOLLOW
+                //- else
+                //-     button.header_btn_settings(type='button' onClick="") FOLLOW
         div.comment_title(class="animate__animated animate__fadeInLeftBig" ) Comments
     div.profile_content
         div.left_column(class="animate__animated animate__fadeInLeftBig" )

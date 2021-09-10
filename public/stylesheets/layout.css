@@ -54,6 +54,7 @@
 .navbar_right {
   grid-area: right;
   display: flex;
+  flex-flow: row nowrap;
   justify-content: flex-end;
   /* padding-right: -100px; */
   /* padding-left: 260px; */
@@ -68,6 +69,7 @@
   margin-right: 20px;
   align-self: center;
 }
+
 
 .navbar_profileImage_pfp {
   border-radius: 50%;
@@ -130,18 +132,25 @@
 }
 
 .navbar_profileImage {
-  align-self: center;
-  margin-right: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 150px;
+}
+
+.navbar_profileImage:hover>.hiddenDiv{
+  visibility: visible;
 }
 
 .dropdown{
   padding-top: 5px;
-  height: 100px;
+  height: 120px;
   width: 115px;
   background-color: white;
-  position: fixed;
+  /* position: fixed;
   top: 67px;
-  right: 100px;
+  right: 100px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -160,6 +169,11 @@
   margin-right: 70px;
 }
 
+#logoutBtn:hover {
+  background-color: #6e2126;
+  font-weight: 600;
+}
+
 .dropdown_link{
   border: none;
   background-color: inherit;
@@ -167,11 +181,22 @@
   font-size: 17px;
   cursor: pointer;
   color: #7E7E7E;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropdown_link:hover{
+  background-color: lightgray;
+  font-weight: 600;
 }
 
 .hiddenDiv{
-  display: none;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  right: 1rem;
 }
+
 
 footer{
   padding: 20px;
