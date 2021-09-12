@@ -38,6 +38,12 @@
     border-radius: 3px;
 }
 
+.header_btn_settings:hover{
+    background-color:#707064;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 .profile_image_pfp {
     border-radius: 50%;
     height: 180px;
