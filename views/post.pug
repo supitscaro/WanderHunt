@@ -49,7 +49,7 @@ block content
             div.author
                 h2.author_title Author
                 div.author_photo(name='author_photo')
-                    img.author_photo_img(src=post.User.profilePhoto id=`author_${post.User.id}`)
+                    img.author_photo_img(src=post.User.profilePhoto id=`author_${post.User.id}` onclick=`location.href=\"/users/${post.User.id}\"`)
                 h3.author_name= post.User.username
             h2.related_title More #{post.Activity.name} Adventures
             div.related

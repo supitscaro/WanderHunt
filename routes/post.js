@@ -6,6 +6,7 @@ const { Post, State, Activity, User, Comment } = require("../db/models");
 const { requireAuth } = require('../auth.js');
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+
     const postId = parseInt(req.params.id, 10);
     const post = await Post.findByPk(postId, {include: [User, State, Activity]});
     const commentsArray = await Comment.findAll({
