@@ -127,10 +127,10 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   let userId = parseInt(req.params.id, 10);
   let user = await User.findByPk(userId);
   console.log("USER>>>>>>>>>>>>>>>>>>>>", user);
-  // let users_id = -1;
-  // if (res.locals.user) {
-  //   users_id = res.locals.user.id;
-  // }
+  let users_id = -1;
+  if (res.locals.user) {
+    users_id = res.locals.user.id;
+  }
   const comments = await Comment.findAll({
     limit: 10,
     include: [{ model: User }, { model: Post }],
@@ -139,7 +139,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   let joinedOn = user.createdAt.toString().split(' ');
   let date = joinedOn.slice(1, 4).join(' ');
 
-  res.render('profile-page', { user, comments, date }); // removed users_id from render.
+  res.render('profile-page', { user, comments, date, users_id }); // removed users_id from render.
 }));
 
 router.get('/:id(\\d+)/settings', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
